@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Tutoriais</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <div class="accessibility-controls" role="toolbar" aria-label="Ferramentas de acessibilidade">
+    <button class="accessibility-btn" id="increaseFont" aria-label="Aumentar tamanho da fonte">A+</button>
+    <button class="accessibility-btn" id="decreaseFont" aria-label="Diminuir tamanho da fonte">A-</button>
+    <button class="accessibility-btn" id="toggleContrast" aria-label="Ativar modo escuro">🌙</button>
+    <button class="accessibility-btn" id="toggleVoice" aria-label="Ativar leitor de tela">🔊</button>
+    <button class="accessibility-btn" id="toggleColors" aria-label="Trocar cores do site">🎨</button>
+  </div>
+
+  <header class="header">
+    <div class="container header-content">
+      <img class="logo" src="logo.png" alt="Logo">
+      <h1 class="header-title">Inclusive.com</h1>
+      <p class="header-subtitle">Tecnologia Simplificada para Você</p>
+    </div>
+  </header>
+
+
+  <main class="main-content container">
+    <section class="hero" tabindex="0">
+      <div class="hero-grid">
+        <div>
+          <h2 class="hero-title">Bem-vindo(a)!</h2>
+          <p class="hero-text">
+            Aqui você encontra vídeos explicativos e tutoriais práticos para usar o celular e o computador no dia a dia.
+          </p>
+          <a class="abutt" href="tparacelular.html"><button id="botaoVideos" class="main-btn"
+              aria-label="Ver vídeos educativos">🎥 Ver Vídeos</button></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <div class="tab-header">
+        <h2 class="section-title">O que você encontrará</h2>
+        <p class="section-subtitle">Conteúdos pensados especialmente para quem está começando</p>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            🧭 Como navegar neste site
+            <span class="accordion-icon">▼</span>
+          </button>
+          <div class="accordion-content" hidden>
+            <div class="accordion-content-inner">
+              Use os botões <b>A+</b> e <b>A-</b> no canto para ajustar o tamanho da letra.
+              Clique no símbolo da lua 🌙 para ativar o modo escuro.
+              O botão 🔊 ativa o leitor de voz que lê o conteúdo da página.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            💡 Dicas para começar
+            <span class="accordion-icon">▼</span>
+          </button>
+          <div class="accordion-content" hidden>
+            <div class="accordion-content-inner">
+              Você pode aprender a baixar um aplicativo, fazer login e criar conta, navegando com segurança.
+              Tudo explicado passo a passo, com vídeos curtos e linguagem simples.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <p class="footer-mensagem">Feito com 💙 para facilitar o aprendizado digital</p>
+    <p class="footer-credito">© 2025 Inclusive.com</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

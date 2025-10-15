@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusive.com - Tecnologia Simplificada para Você</title>
+      <link rel="stylesheet" href="atividade.css">
+      <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="accessibility-controls" role="toolbar" aria-label="Ferramentas de acessibilidade">
+        <button class="accessibility-btn" id="increaseFont" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button class="accessibility-btn" id="decreaseFont" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button class="accessibility-btn" id="toggleContrast" aria-label="Ativar modo escuro">🌙</button>
+        <button class="accessibility-btn" id="toggleVoice" aria-label="Ativar leitor de tela">🔊</button>
+        <button class="accessibility-btn" id="toggleColors" aria-label="Trocar cores do site">🎨</button>
+    </div>
+
+    <header class="header">
+        <div class="container header-content">
+            <img class="logo" src="logo.png" alt="Logo">
+            <h1 class="header-title">Inclusive.com</h1>
+            <p class="header-subtitle">Tecnologia Simplificada para Você</p>
+        </div>
+    </header>
+
+    <main class="container main-content">
+
+        <section class="atividade">
+            <h2 class="atividade-title">🧠 Atividade: Aprendendo com os vídeos</h2>
+            <p>Responda às perguntas sobre os tutoriais abaixo:</p>
+
+            <div class="pergunta">
+                <h3>1️⃣ O que você deve fazer primeiro para baixar um aplicativo?</h3>
+                <button class="resposta">Apenas abrir o celular</button>
+                <button class="resposta">Ter internet e acessar a loja de apps</button>
+                <button class="resposta">Esperar ele aparecer sozinho</button>
+            </div>
+
+            <div class="pergunta">
+                <h3>2️⃣ Qual vídeo ensina a fazer login?</h3>
+                <button class="resposta">Como ter um aplicativo de Uber</button>
+                <button class="resposta">Como baixar e fazer login</button>
+                <button class="resposta">Como baixar um aplicativo</button>
+            </div>
+
+            <p class="resultado" id="resultado"></p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer-mensagem">Feito com 💙 para facilitar o aprendizado digital</p>
+        <p class="footer-credito">© 2025 Inclusive.com</p>
+    </footer>
+
+    <script src="atividade.js"></script>
+</body>
+</html>
