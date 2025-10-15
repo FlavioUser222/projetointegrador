@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inclusive.com - Tecnologia Simplificada para Você</title>
     <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="logo.png" type="image/x-icon"></head>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
 
 <body>
 
@@ -30,7 +31,12 @@
             <h2 class="hero-title">Bem-vindo aos tutoriais Inclusive.com!</h2>
 
             <div class="tudo">
-              
+                <h1 id="tituloVideo"></h1>
+
+                <div class="videoPlayer" id="videoPlayer">
+
+                </div>
+
             </div>
 
             <div class=""><a href="atividades.html"><button class="conceito">Atividades</button></a></div>
@@ -50,5 +56,64 @@
 
     <script src="script.js"></script>
 </body>
+
+<script>
+    let listaDeVideos = []
+
+
+    async function mostrarVideos() {
+
+
+        try {
+
+
+            let res = await fetch("https://projeto-pi-onrender.onrender.com/videos")
+            let divVideos = document.getElementById('videoPlayer')
+
+
+            listaDeVideos = await res.json()
+
+            listaDeVideos.forEach(video => {
+                let card = document.createElement('div')
+                card.classList.add('video-card')
+
+                let titulo = document.createElement('h3')
+                titulo.innerText = video.nome
+
+          
+                let vid = document.createElement('video')
+                vid.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.video}`
+                vid.controls = true
+                vid.width = 320 
+                vid.height = 180 
+       
+                card.appendChild(titulo)
+                card.appendChild(vid)
+
+                divVideos.appendChild(card)
+
+
+
+            });
+
+        } catch (error) {
+            console.log("Error", error)
+            alert("Erro ao carregar videos")
+        }
+
+    }
+
+
+    mostrarVideos()
+
+
+
+
+
+</script>
+
+
+
+
 
 </html>
