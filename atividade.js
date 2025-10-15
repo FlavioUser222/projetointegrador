@@ -8,18 +8,22 @@ const btnCores = document.getElementById("toggleColors");
 
 btnAumentar.addEventListener("click", () => {
   tamanhoFonte += 10;
+  if (tamanhoFonte > 30) {
+    return
+  }
+
   document.body.style.fontSize = `${tamanhoFonte}%`;
 });
 
 btnDiminuir.addEventListener("click", () => {
-  if (tamanhoFonte > 50) { 
+  if (tamanhoFonte > 50) {
     tamanhoFonte -= 10;
-    document.body.style.fontSize = `${tamanhoFonte}%`;
+    document.body.style.fontSize = `${tamanhoFonte}%`
   }
 });
 
 btnContraste.addEventListener("click", () => {
-  document.body.classList.toggle("modo-escuro");
+  document.body.classList.toggle("modo-escuro")
 });
 
 btnCores.addEventListener("click", () => {
@@ -36,7 +40,7 @@ botoesResposta.forEach((botao) => {
   botao.addEventListener("click", () => {
     const texto = botao.innerText.trim();
 
-  
+
     const respostaCerta1 = "Ter internet e acessar a loja de apps";
     const respostaCerta2 = "Como baixar e fazer login";
 
