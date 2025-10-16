@@ -80,8 +80,8 @@
                 let titulo = document.createElement('h3')
                 titulo.innerText = video.nome
 
-          
                 let vid = document.createElement('video')
+                vid.poster = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
                 vid.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.video}`
                 vid.controls = true
                 vid.width = 320 
@@ -91,9 +91,6 @@
                 card.appendChild(vid)
 
                 divVideos.appendChild(card)
-
-
-
             });
 
         } catch (error) {

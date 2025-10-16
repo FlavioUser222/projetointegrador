@@ -11,8 +11,14 @@ let botaoVideos = document.getElementById("botaoVideos");
 
 
 botaoMais.onclick = function () {
+    if(tamanhoDaLetra == 170){
+        return
+    }
     tamanhoDaLetra = tamanhoDaLetra + 10;
     document.body.style.fontSize = tamanhoDaLetra + "%"
+
+
+
 };
 
 
