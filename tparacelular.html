@@ -16,7 +16,9 @@
         <button class="accessibility-btn" id="decreaseFont" aria-label="Diminuir tamanho da fonte">A-</button>
         <button class="accessibility-btn" id="toggleContrast" aria-label="Ativar modo escuro">🌙</button>
         <button class="accessibility-btn" id="toggleVoice" aria-label="Ativar leitor de tela">🔊</button>
-        <button class="accessibility-btn" id="toggleColors" aria-label="Trocar cores do site">🎨</button>
+        <button class="accessibility-btn" id="toggleColors1" aria-label="Trocar cores do site">🎨</button>
+        <button class="accessibility-btn" id="toggleColors2" aria-label="Trocar cores do site">🎨</button>
+        <button class="accessibility-btn" id="toggleColors3" aria-label="Trocar cores do site">🎨</button>
     </div>
     <header class="header">
         <div class="container header-content">
@@ -80,14 +82,21 @@
                 let titulo = document.createElement('h3')
                 titulo.innerText = video.nome
 
+                // let botaoPlay = document.createElement('div')
+                // botaoPlay.className = 'botaoPlay'
+
+    
                 let vid = document.createElement('video')
                 vid.poster = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
                 vid.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.video}`
                 vid.controls = true
                 vid.width = 320 
                 vid.height = 280 
-       
+
+
+    
                 card.appendChild(titulo)
+                // card.appendChild(botaoPlay)
                 card.appendChild(vid)
 
                 divVideos.appendChild(card)

@@ -31,9 +31,6 @@ body {
     align-items: center;
 }
 
-
-
-
 :focus {
     outline: 3px solid #0066ff;
     outline-offset: 3px;
@@ -204,6 +201,11 @@ body {
 
 .dark-mode .hero {
     background-color: #2b2b2b;
+    color: white;
+}
+
+.dark-mode .hero-title {
+    color: white;
 }
 
 .dark-mode .accordion-button {
@@ -245,11 +247,58 @@ video {
 
 }
 
-
 .card {
     width: 100%;
     max-width: 300px;
 }
 
+body.protanopia {
+    background-color: #f0f0f0 !important;
+    color: #222 !important;
+}
+
+body.protanopia header,
+body.protanopia footer {
+    background-color: #0077cc !important;
+    color: #fff !important;
+}
+
+body.protanopia .hero {
+    background-color: #e0e0e0 !important;
+    border: 2px solid #555 !important;
+}
+
+body.deuteranopia {
+    background-color: #fff7e6 !important;
+    color: #333 !important;
+}
+
+body.deuteranopia header,
+body.deuteranopia footer {
+    background-color: #0066cc !important;
+    color: #fff !important;
+}
+
+body.deuteranopia .hero {
+    background-color: #ffe0b3 !important;
+    border: 2px solid #663300 !important;
+}
 
 
+body.tritanopia {
+    background-color: #f9f9f9 !important;
+    color: #222 !important;
+}
+
+
+body.tritanopia header,
+body.tritanopia footer {
+    background-color: #33aa33 !important;
+    color: #fff !important;
+}
+
+
+body.tritanopia .hero {
+    background-color: #ffccdd !important;
+    border: 2px solid #555 !important;
+}
