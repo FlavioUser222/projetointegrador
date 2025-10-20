@@ -84,6 +84,8 @@ body {
 .hero-title {
     font-size: 2rem;
     color: #030213;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-text {
@@ -229,7 +231,6 @@ video {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
-    justify-content: center;
 }
 
 .abutt {
@@ -244,7 +245,9 @@ video {
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-
+    display: block;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .card {
