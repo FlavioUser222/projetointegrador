@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de videos</title>
+    <link rel="stylesheet" href="cadVideo.css">
+</head>
+
+
+<body>
+
+    <button id="menu-btn">☰</button>
+
+
+    <div class="sidebar" id="sidebar">
+        <div class="icons">
+            <a href="index.html">🏠 <span>Home</span></a>
+            <a href="controler.html">🎥 <span>Vídeos</span></a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Area administrador</h1>
+
+        <div class="content" id="content">
+            <label for="">Nome do video</label>
+            <input type="text" id="nome" placeholder="Digite o nome do video" required>
+            <label for="">Descricão do video</label>
+            <input type="text" id="descricao" placeholder="Digite a descrição do video" required>
+            <label for="">Legenda do vídeo</label>
+            <input type="text" id="legenda" placeholder="Digite a legenda">
+            <label for="">Transcrição do vídeo</label>
+            <input type="text" id="transcricao" placeholder="Digite a transcrição">
+            <label for="">Categoria do video</label>
+            <select name="" id="select">
+                <option selected disabled>Escolha categoria do video</option>
+            </select>
+
+            <div class="buttons">
+                <div class="button-video">
+                    <label for="">Envie o video</label>
+                    <input type="file" id="video" accept="video/*" required>
+                </div>
+                <div class="thumb">
+                    <label for="">Thumbnail do video</label>
+                    <input type="file" id="thumb" accept="image/*" required>
+                </div>
+            </div>
+
+            <button onclick="postarDados()" class="buttonEnviar">Publicar video</button>
+        </div>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        let categorias = []
+
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+
+        async function postarDados() {
+
+
+
+            let nome = document.getElementById('nome').value
+            let video = document.getElementById('video')
+            let descricao = document.getElementById('descricao').value
+            const thumbFile = document.getElementById('thumb').files[0]
+            const videoFile = video.files[0]
+            const formData = new FormData()
+            const legenda = document.getElementById('legenda').value;
+            const transcricao = document.getElementById('transcricao').value
+
+
+            const categoria = document.getElementById('select').value
+
+            try {
+
+
+
+                if (!categoria || categoria === 'Categoria do video') {
+                    alert("Selecione uma categoria antes de enviar!");
+                    return
+                }
+
+                formData.append('nome', nome)
+                formData.append('descricao', descricao)
+                formData.append('video', videoFile)
+                formData.append('thumbnail', thumbFile)
+                formData.append('legenda', legenda)
+                formData.append('categoria_id', categoria)
+                formData.append('transcricao', transcricao)
+
+
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/video', {
+                    method: "POST",
+                    body: formData
+                })
+
+                if (res.ok) {
+                    alert("✅ Vídeo enviado com sucesso!")
+                    document.getElementById('nome').value = ''
+                    document.getElementById('descricao').value = ''
+                    document.getElementById('legenda').value = ''
+                    document.getElementById('transcricao').value = ''
+                    document.getElementById('select').selectedIndex = 0
+                    document.getElementById('video').value = ''
+                    document.getElementById('thumb').value = ''
+                } else {
+                    alert("⚠️ Erro ao enviar o vídeo.")
+                }
+
+
+            } catch (error) {
+                console.error(error)
+            }
+
+
+
+        }
+
+        async function categoriaVideo() {
+            try {
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/categorias')
+                categorias = await res.json()
+
+                const select = document.getElementById('select')
+
+                categorias.forEach(categoria => {
+                    let opt = document.createElement('option')
+
+                    opt.value = categoria.id
+                    opt.innerText = categoria.nome
+
+                    select.appendChild(opt)
+                })
+            } catch (error) {
+                console.error("Erro ao carregar categorias:", error)
+            }
+
+        }
+
+        categoriaVideo()
+
+
+
+
+
+    </script>
+</body>
+
+</html>

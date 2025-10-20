@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/admin.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Entrar no sistema</h1>
+
+        <input type="text" id="email" placeholder="Email" autocomplete="off">
+        <input type="password" id="senha" placeholder="Senha" autocomplete="off">
+        <button onclick="postarDados()">Entrar</button>
+    </div>
+
+    <script>
+
+
+        async function postarDados() {
+
+            let email = document.getElementById('email').value
+            let senha = document.getElementById('senha').value
+
+            if (!isNaN(email) || email == "" || email == null) {
+                return
+            }
+
+            try {
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/login', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, senha })
+                })
+
+                let data = await res.json()
+                console.log(data)
+
+                if (res.ok) {
+                    document.getElementById("email").value = ""
+                    document.getElementById("senha").value = ""
+                    alert("Login realizado com sucesso!")
+
+                    setTimeout(() => {
+                        window.location.href = "index.html"
+                    }, 200)
+
+                } else {
+                    alert(data.error || "Erro ao fazer login!");
+                }
+
+            } catch (error) {
+                alert('Erro ao realizar login')
+            }
+
+
+
+
+
+
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

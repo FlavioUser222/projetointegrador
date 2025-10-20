@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Responsivo</title>
+    <link rel="stylesheet" href="controler.css">
+
+</head>
+
+<body>
+
+    <button id="menu-btn">☰</button>
+
+
+    <div class="sidebar" id="sidebar">
+        <div class="icons">
+            <a href="index.html">🏠 <span>Home</span></a>
+            <a href="controler.html">🎥 <span>Vídeos</span></a>
+            <a href="inclusive.html">🎥 <span>Inclusive</span></a>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <h1>Gerenciar Vídeos</h1>
+        <div class="content" id="content">
+            <div class="videosContent" id="videosContent">
+
+            </div>
+
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content" id="modalContent">
+                <label for="">Digite o novo nome do video</label>
+                <input type="text" id="nome" required placeholder="Novo nome">
+                <label for="">Nova descricão do video</label>
+                <input type="text" id="descricao" required placeholder="Nova descricao">
+                <label for="">Legenda do vídeo</label>
+                <input type="text" id="legenda" placeholder="Digite a legenda">
+                <label for="">Transcrição do vídeo</label>
+                <input type="text" id="transcricao" placeholder="Digite a transcrição">
+
+                <select name="" id="select">
+                    <option selected disabled>Escolha categoria do video</option>
+                </select>
+
+
+                <label for="">Envie o video novo</label>
+                <input type="file" id="video" accept="video/*" required>
+                <label for="">Thumbnail nova do video</label>
+                <input type="file" id="thumb" accept="image/*" required>
+                <button id="botaoEditar">Editar video</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script>
+
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const videoEditadoId = null
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+        let videos = []
+
+
+        async function mostrarVideo() {
+            try {
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/videos');
+                videos = await res.json()
+                let videosContent = document.getElementById('videosContent');
+
+                videos.forEach((video) => {
+
+                    let videoElement = document.createElement('video');
+                    let videoCard = document.createElement('div')
+                    videoCard.className = "videoCard"
+                    let h1 = document.createElement('h1')
+                    h1.textContent = video.nome
+            
+                    // Define os atributos do vídeo
+                    videoElement.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.video}`;
+                    videoElement.controls = true;
+                    videoElement.preload = 'metadata';
+                    videoElement.width = 400;
+                    videoElement.height = 225;
+                    videoElement.poster = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
+                    videoElement.style.borderRadius = '8px';
+
+                    let divButtons = document.createElement('div')
+                    divButtons.className = "divButtons"
+                    divButtons.innerHTML = `<button onclick="abrirModal(${video.id})">Editar</button>
+                    <button onclick="excluirVideo(${video.id})">Excluir</button>`
+
+
+                    videoCard.appendChild(h1)
+                    videoCard.appendChild(videoElement)
+                    videoCard.appendChild(divButtons)
+
+                    videosContent.appendChild(videoCard);
+                });
+            } catch (err) {
+                console.error('Erro ao carregar vídeos:', err);
+            }
+        }
+
+
+        async function excluirVideo(id) {
+            if (!confirm("Tem certeza que deseja excluir este vídeo?")) return;
+
+            try {
+                let res = await fetch(`https://projeto-pi-onrender.onrender.com/video/${id}`, {
+                    method: "DELETE"
+                });
+
+                if (res.ok) {
+                    alert("✅ Vídeo excluído com sucesso!");
+                    document.getElementById('videosContent').innerHTML = '';
+                    mostrarVideo();
+                } else {
+                    alert("⚠️ Erro ao excluir o vídeo.");
+                }
+            } catch (err) {
+                console.error("Erro ao excluir vídeo:", err);
+                alert("❌ Falha ao conectar ao servidor.");
+            }
+        }
+
+
+        async function abrirModal(id) {
+            videoEditandoId = id
+            let modal = document.getElementById('modal')
+            modal.classList.add('show')
+            document.getElementById('botaoEditar').onclick = () => editarVideo(videoEditandoId)
+
+        }
+
+
+        async function editarVideo(id) {
+
+            let nome = document.getElementById('nome').value
+            let video = document.getElementById('video')
+            let descricao = document.getElementById('descricao').value
+            const thumbFile = document.getElementById('thumb').files[0]
+            const videoFile = video.files[0]
+            let legenda = document.getElementById('legenda').value
+            let transcricao = document.getElementById('transcricao').value
+
+
+            const formData = new FormData()
+
+            const categoria = document.getElementById('select').value
+
+            formData.append('nome', nome)
+            formData.append('descricao', descricao)
+            formData.append('legenda', legenda)
+            formData.append('transcricao', transcricao)
+            formData.append('video', videoFile)
+            formData.append('categoria_id', categoria)
+            formData.append('thumbnail', thumbFile)
+
+            let res = await fetch(`https://projeto-pi-onrender.onrender.com/videos/${id}`, {
+                method: "PUT",
+                body: formData
+            })
+
+            if (res.ok) {
+                alert("Vídeo atualizado com sucesso!");
+                document.getElementById('modal').classList.remove('show')
+                document.getElementById('videosContent').innerHTML = ''
+                mostrarVideo()
+            } else {
+                alert("Erro ao atualizar o vídeo.");
+            }
+
+        }
+
+        async function categoriaVideo() {
+            try {
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/categorias')
+                categorias = await res.json()
+
+                const select = document.getElementById('select')
+
+                categorias.forEach(categoria => {
+                    let opt = document.createElement('option')
+
+                    opt.value = categoria.id
+                    opt.innerText = categoria.nome
+
+                    select.appendChild(opt)
+                })
+            } catch (error) {
+                console.error("Erro ao carregar categorias:", error)
+            }
+
+        }
+
+        categoriaVideo()
+
+
+
+
+
+
+
+        mostrarVideo();
+
+
+        // Fecha o modal ao clicar fora da modal-content
+        document.getElementById('modal').addEventListener('click', function (event) {
+            // Se o clique for diretamente no fundo (não no conteúdo)
+            if (event.target === this) {
+                this.classList.remove('show');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
