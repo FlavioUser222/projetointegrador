@@ -3,7 +3,6 @@ let tamanhoDaLetra = 100;
 let modoEscuro = false;
 let leitorLigado = false;
 
-
 let modoPronatopia = false
 let modoDeuteratopia = false
 let modoTritanopia = false
@@ -37,28 +36,31 @@ botaoMenos.onclick = function () {
 
 
 function limparModosDaltonismo() {
-    document.body.classList.remove("protanopia", "deuteranopia", "tritanopia");
+    document.body.classList.remove("protanopia", "deuteranopia", "tritanopia","dark-mode");
     modoPronatopia = false;
     modoDeuteratopia = false;
     modoTritanopia = false;
+    modoEscuro = false
 }
-
 
 function ativarDaltonismoTritanopia() {
     const ativo = !modoTritanopia;
     limparModosDaltonismo();
     modoTritanopia = ativo;
-    if (ativo) document.body.classList.add("tritanopia");
+    if (ativo) {
+        document.body.classList.add("tritanopia");
         alert("Modo daltonismo tritanopia")
-
+    }
 }
 
 function ativarDaltonismoDeuteratopia() {
     const ativo = !modoDeuteratopia;
     limparModosDaltonismo();
     modoDeuteratopia = ativo;
-    if (ativo) document.body.classList.add("deuteranopia");
+    if (ativo) {
+        document.body.classList.add("deuteranopia");
         alert("Modo daltonismo deuteratopia")
+    }
 
 }
 
@@ -67,8 +69,10 @@ function ativarDaltonismoProtanopia() {
     const ativo = !modoPronatopia;
     limparModosDaltonismo();
     modoPronatopia = ativo;
-    if (ativo) document.body.classList.add("protanopia");
-    alert("Modo daltonismo protanopia")
+    if (ativo) {
+        document.body.classList.add("protanopia");
+        alert("Modo daltonismo protanopia")
+    }
 }
 
 document.getElementById('toggleColors1').addEventListener('click', ativarDaltonismoTritanopia)
@@ -77,20 +81,10 @@ document.getElementById('toggleColors3').addEventListener('click', ativarDaltoni
 
 
 
-
-
-
-
-
-
-
-
-
 botaoEscuro.onclick = function () {
     modoEscuro = !modoEscuro;
     document.body.classList.toggle("dark-mode", modoEscuro);
 };
-
 
 botaoLeitor.onclick = function () {
     leitorLigado = !leitorLigado;

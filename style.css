@@ -231,6 +231,9 @@ video {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .abutt {
