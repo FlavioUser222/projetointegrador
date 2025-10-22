@@ -45,7 +45,14 @@ body {
 .header {
     background-color: #003366;
     color: white;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.header-content{
+    display: flex;
 }
 
 .header-icon {
@@ -54,7 +61,7 @@ body {
 }
 
 .header-title {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-top: 0.5rem;
 }
 
