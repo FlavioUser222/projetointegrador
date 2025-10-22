@@ -3,21 +3,20 @@ let tamanhoDaLetra = 100;
 let modoEscuro = false;
 let leitorLigado = false;
 
-let modoPronatopia = false
-let modoDeuteratopia = false
-let modoTritanopia = false
+// let modoPronatopia = false
+// let modoDeuteratopia = false
+// let modoTritanopia = false
 
 let botaoMais = document.getElementById("increaseFont");
 let botaoMenos = document.getElementById("decreaseFont");
 let botaoEscuro = document.getElementById("toggleContrast");
 let botaoLeitor = document.getElementById("toggleVoice");
 
-let botaoDaltonismoProtanopia = document.getElementById('toggleColors1')
-let botaoDaltonismoDeuteranopia = document.getElementById('toggleColors2')
-let botaoDaltonismoTritanopia = document.getElementById('toggleColors3')
+// let botaoDaltonismoProtanopia = document.getElementById('toggleColors1')
+// let botaoDaltonismoDeuteranopia = document.getElementById('toggleColors2')
+// let botaoDaltonismoTritanopia = document.getElementById('toggleColors3')
 
 let botaoVideos = document.getElementById("botaoVideos")
-
 
 botaoMais.onclick = function () {
     if (tamanhoDaLetra == 170) {
@@ -35,49 +34,52 @@ botaoMenos.onclick = function () {
 };
 
 
-function limparModosDaltonismo() {
-    document.body.classList.remove("protanopia", "deuteranopia", "tritanopia","dark-mode");
-    modoPronatopia = false;
-    modoDeuteratopia = false;
-    modoTritanopia = false;
-    modoEscuro = false
-}
+// function limparModosDaltonismo() {
+//     document.body.classList.remove("protanopia", "deuteranopia", "tritanopia", "dark-mode");
+//     modoPronatopia = false;
+//     modoDeuteratopia = false;
+//     modoTritanopia = false;
+//     modoEscuro = false
+// }
 
-function ativarDaltonismoTritanopia() {
-    const ativo = !modoTritanopia;
-    limparModosDaltonismo();
-    modoTritanopia = ativo;
-    if (ativo) {
-        document.body.classList.add("tritanopia");
-        alert("Modo daltonismo tritanopia")
-    }
-}
+// function ativarDaltonismoTritanopia() {
+//     const ativo = !modoTritanopia;
+//     limparModosDaltonismo();
+//     modoTritanopia = ativo;
+//     if (ativo) {
+//         document.body.classList.add("tritanopia");
+//         alert("Modo daltonismo tritanopia")
+//     }
+// }
 
-function ativarDaltonismoDeuteratopia() {
-    const ativo = !modoDeuteratopia;
-    limparModosDaltonismo();
-    modoDeuteratopia = ativo;
-    if (ativo) {
-        document.body.classList.add("deuteranopia");
-        alert("Modo daltonismo deuteratopia")
-    }
+// function ativarDaltonismoDeuteratopia() {
+//     const ativo = !modoDeuteratopia;
+//     limparModosDaltonismo();
+//     modoDeuteratopia = ativo;
+//     if (ativo) {
+//         document.body.classList.add("deuteranopia");
+//         alert("Modo daltonismo deuteratopia")
+//     }
 
-}
+// }
 
 
-function ativarDaltonismoProtanopia() {
-    const ativo = !modoPronatopia;
-    limparModosDaltonismo();
-    modoPronatopia = ativo;
-    if (ativo) {
-        document.body.classList.add("protanopia");
-        alert("Modo daltonismo protanopia")
-    }
-}
 
-document.getElementById('toggleColors1').addEventListener('click', ativarDaltonismoTritanopia)
-document.getElementById('toggleColors2').addEventListener('click', ativarDaltonismoDeuteratopia)
-document.getElementById('toggleColors3').addEventListener('click', ativarDaltonismoProtanopia)
+
+
+// function ativarDaltonismoProtanopia() {
+//     const ativo = !modoPronatopia;
+//     limparModosDaltonismo();
+//     modoPronatopia = ativo;
+//     if (ativo) {
+//         document.body.classList.add("protanopia");
+//         alert("Modo daltonismo protanopia")
+//     }
+// }
+
+// document.getElementById('toggleColors1').addEventListener('click', ativarDaltonismoTritanopia)
+// document.getElementById('toggleColors2').addEventListener('click', ativarDaltonismoDeuteratopia)
+// document.getElementById('toggleColors3').addEventListener('click', ativarDaltonismoProtanopia)
 
 
 
@@ -143,3 +145,51 @@ if (botaoVideos) {
         window.location.href = "videos.html";
     };
 }
+
+
+const menuToggle = document.getElementById("menuToggle");
+const accessibilityMenu = document.getElementById("accessibilityMenu");
+
+menuToggle.addEventListener("click", () => {
+    accessibilityMenu.classList.toggle("active");
+});
+
+
+
+
+function aplicarDaltonismo(tipo) {
+    document.body.classList.remove('protanopia', 'deuteranopia', 'tritanopia')
+
+    if (tipo) {
+        document.body.classList.add(tipo)
+        localStorage.setItem('modoDaltonismo', tipo)
+    } else {
+        localStorage.removeItem('modoDaltonismo')
+    }
+}
+
+function ativarDaltonismo() {
+    const modoAtual = localStorage.getItem('modoDaltonismo')
+    let novoModo;
+
+    if (modoAtual === 'protanopia') {
+        novoModo = 'deuteranopia'
+        alert('🔵 Modo Daltonismo: Deuteranopia ativado')
+    } else if (modoAtual === 'deuteranopia') {
+        novoModo = 'tritanopia'
+        alert('🟢 Modo Daltonismo: Tritanopia ativado')
+    } else if (modoAtual === 'tritanopia') {
+        novoModo = null;
+        alert('🔁 Modo Daltonismo desativado')
+    } else {
+        novoModo = 'protanopia'
+        alert('🔴 Modo Daltonismo: Protanopia ativado')
+    }
+
+    aplicarDaltonismo(novoModo)
+
+}
+
+
+document.getElementById('btnDaltonismo').addEventListener('click', ativarDaltonismo)
+
