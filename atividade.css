@@ -154,7 +154,7 @@ body {
   display: none;
   /* escondido por padrão */
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin-top: 10px;
   background-color: rgb(212, 209, 209);
   border: 2px solid #0077ff;
@@ -181,4 +181,20 @@ body {
 
 .accessibility-btn:hover {
   background: #ddd;
+}
+
+
+@media(max-width:800px){
+  .resposta {
+  display: flex;
+  flex-direction: column;
+  margin: 0.4rem 0;
+  padding: 0.7rem 1rem;
+  border: none;
+  background-color: #e0e8f0;
+  color: #003366;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 }
