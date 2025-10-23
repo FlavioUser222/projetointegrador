@@ -183,17 +183,17 @@ body {
   background: #ddd;
 }
 
-@media(max-width:800px){
+@media(max-width:800px) {
   .resposta {
-  display: flex;
-  flex-direction: column;
-  margin: 0.4rem 0;
-  padding: 0.7rem 1rem;
-  border: none;
-  background-color: #e0e8f0;
-  color: #003366;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content:center ;
+    border: none;
+    background-color: #e0e8f0;
+    color: #003366;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
 }
