@@ -183,7 +183,6 @@ body {
   background: #ddd;
 }
 
-
 @media(max-width:800px){
   .resposta {
   display: flex;

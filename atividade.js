@@ -228,48 +228,39 @@ document.getElementById('btnDaltonismo').addEventListener('click', ativarDaltoni
 
 
 
+const perguntas = document.querySelectorAll(".pergunta");
 
+perguntas.forEach((pergunta) => {
+  const botoes = pergunta.querySelectorAll(".resposta");
+  const resultado = pergunta.querySelector(".resultado");
 
+  botoes.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const texto = botao.innerText.trim();
 
+      const respostaCerta1 = "Ter internet e acessar a loja de apps";
+      const respostaCerta2 = "Como baixar e fazer login";
+      const respostaCerta3 = "Abrir o aplicativo do banco e enviar um pix";
+      const respostaCerta4 = "Como pedir uma corrida e usar o app";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const botoesResposta = document.querySelectorAll(".resposta");
-const resultado = document.getElementById("resultado");
-
-botoesResposta.forEach((botao) => {
-  botao.addEventListener("click", () => {
-    const texto = botao.innerText.trim();
-
-
-    const respostaCerta1 = "Ter internet e acessar a loja de apps";
-    const respostaCerta2 = "Como baixar e fazer login";
-
-    if (texto === respostaCerta1 || texto === respostaCerta2) {
-      resultado.textContent = "✅ Parabéns! Você acertou!";
-      resultado.style.color = "green";
-    } else {
-      resultado.textContent = "❌ Tente novamente!";
-      resultado.style.color = "red";
-    }
+      if (
+        texto === respostaCerta1 ||
+        texto === respostaCerta2 ||
+        texto === respostaCerta3 ||
+        texto === respostaCerta4
+      ) {
+        resultado.textContent = "✅ Parabéns! Você acertou!";
+        resultado.style.color = "green";
+      } else {
+        resultado.textContent = "❌ Tente novamente!";
+        resultado.style.color = "red";
+      }
+    });
   });
 });
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {

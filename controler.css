@@ -9,11 +9,15 @@
         font-family: "Inter", sans-serif;
     }
 
-    .videoCard h1{
+    .videoCard h1 {
         font-size: 23px;
         font-weight: 600;
-    
+
     }
+
+
+
+
 
 
     .container {
@@ -66,6 +70,19 @@
         margin-bottom: 20px;
         cursor: pointer;
     }
+
+    input,
+    #select {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+
+    }
+
+
+
+
 
     .sidebar .icons {
         display: flex;
