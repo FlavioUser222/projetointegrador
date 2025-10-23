@@ -53,7 +53,6 @@
                     <div class="videoPlayer" id="videoPlayer">
 
                     </div>
-
                 </div>
 
                 <div class=""><a href="atividades.html"><button class="conceito">Atividades</button></a></div>
@@ -97,9 +96,36 @@
                 let titulo = document.createElement('h3')
                 titulo.innerText = video.nome
 
+
+                let botaoDesc = document.createElement('button')
+                botaoDesc.innerText = 'Saiba Mais'
+                botaoDesc.className = 'btnSaibaMais';
+
+
+                let div = document.createElement('div')
+                div.className = 'saibaMais'
+                div.style.display = 'none'; // Inicialmente escondida
+
+
+                let descricao = document.createElement('p')
+                descricao.innerText = video.descricao
+                div.appendChild(descricao)
+
+                botaoDesc.addEventListener('click', () => {
+                    if (div.style.display === 'block') {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'block';
+                    }
+
+                    if (!card.contains(div)) {
+                        card.appendChild(div);
+                    }
+                })
+
+
                 // let botaoPlay = document.createElement('div')
                 // botaoPlay.className = 'botaoPlay'
-
 
                 let vid = document.createElement('video')
                 vid.poster = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
@@ -108,12 +134,10 @@
                 vid.width = 320
                 vid.height = 280
 
-
-
                 card.appendChild(titulo)
                 // card.appendChild(botaoPlay)
                 card.appendChild(vid)
-
+                card.appendChild(botaoDesc)
                 divVideos.appendChild(card)
             });
 
@@ -123,6 +147,7 @@
         }
 
     }
+
 
 
     mostrarVideos()
