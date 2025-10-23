@@ -129,7 +129,7 @@ body {
     background-color: #030213;
     color: white;
     border: none;
-    padding: 1rem 1.5rem;
+    padding: 10px 20px;
     font-size: 1.25rem;
     border-radius: 8px;
     cursor: pointer;
@@ -504,7 +504,7 @@ body.tritanopia .hero {
         justify-content: center;
         flex-wrap: nowrap
     }
-    
+
     .video-card video {
         width: 270px;
     }
