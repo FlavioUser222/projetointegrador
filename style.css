@@ -29,7 +29,7 @@ body {
 .video-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     position: relative;
 }
 
@@ -449,6 +449,11 @@ body.tritanopia .hero {
     padding: 2px 12px;
     border-radius: 4px;
     transition: background 0.2s;
+    display: flex;
+    align-items: start;
+    width: 110px;
+
+
 }
 
 
