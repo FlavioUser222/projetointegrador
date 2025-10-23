@@ -99,7 +99,8 @@ body {
 
 .accessibility-controls button img {
     width: 23px;
-    height: 18px;
+    height: 23px;
+    object-fit: cover;
 }
 
 .hero-title {
@@ -233,12 +234,14 @@ body {
 }
 
 .dark-mode .hero-text,
-.hero-grid{
+.hero-grid {
     color: rgb(0, 0, 0);
 }
+
 .dark-mode .hero-text {
     color: rgb(255, 255, 255);
 }
+
 .dark-mode .section-subtitle {
     color: rgb(255, 255, 255) !important;
 }
@@ -264,9 +267,10 @@ body {
 }
 
 .dark-mode .atividade-title {
-    color: white ;
+    color: white;
 }
-.dark-mode .section-title{
+
+.dark-mode .section-title {
     color: rgb(255, 255, 255);
 }
 
@@ -392,7 +396,7 @@ body.tritanopia .hero {
     flex-direction: column;
     gap: 8px;
     margin-top: 10px;
-    background-color: rgb(167, 162, 162);
+    background-color: rgb(212, 209, 209);
     border: 2px solid #0077ff;
     border-radius: 10px;
     padding: 10px;

@@ -16,7 +16,8 @@
 
     <div class="sidebar" id="sidebar">
         <div class="icons">
-            <a href="videoCad.html">🏠 <span>Home</span></a>
+            <a href="index.html">🏠<span>Home</span></a>
+            <a href="videoCad.html">⚙️<span>Cadastrar Vídeo</span></a>
             <a href="controler.html">🎥 <span>Vídeos</span></a>
         </div>
     </div>
@@ -85,7 +86,7 @@
                     videoCard.className = "videoCard"
                     let h1 = document.createElement('h1')
                     h1.textContent = video.nome
-            
+
                     // Define os atributos do vídeo
                     videoElement.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.video}`;
                     videoElement.controls = true;
