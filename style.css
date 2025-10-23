@@ -53,6 +53,8 @@ body {
 
 .header-content {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .header-icon {
@@ -141,7 +143,7 @@ body {
 
 .section-title {
     font-size: 1.75rem;
-    color: #030213;
+    color: #000000;
     margin-bottom: 0.5rem;
 }
 
@@ -231,16 +233,21 @@ body {
 }
 
 .dark-mode .hero-text,
-.hero-grid,
-.section-title,
-.section-subtitle{
-    color: white;
+.hero-grid{
+    color: rgb(0, 0, 0);
+}
+.dark-mode .hero-text {
+    color: rgb(255, 255, 255);
+}
+.dark-mode .section-subtitle {
+    color: rgb(255, 255, 255) !important;
 }
 
 .dark-mode .accordion-button {
     background-color: #333;
     color: white;
 }
+
 .dark-mode .accordion-content {
     background-color: #333;
     color: white;
@@ -250,13 +257,17 @@ body {
     background-color: #2b2b2b;
     border-color: #444;
 }
+
 .dark-mode .atividade {
     background-color: #2b2b2b;
     color: white;
 }
 
-.dark-mode .atividade-title{
-    color: white !important;
+.dark-mode .atividade-title {
+    color: white ;
+}
+.dark-mode .section-title{
+    color: rgb(255, 255, 255);
 }
 
 
@@ -409,15 +420,27 @@ body.tritanopia .hero {
 }
 
 
+@media (max-width:800px) {
+    .header-subtitle {
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap
+    }
 
 
 
 
-
-
-
-
-
-
-
-
+}
