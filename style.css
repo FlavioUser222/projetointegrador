@@ -51,7 +51,7 @@ body {
     padding: 20px;
 }
 
-.header-content{
+.header-content {
     display: flex;
 }
 
@@ -230,7 +230,18 @@ body {
     color: white;
 }
 
+.dark-mode .hero-text,
+.hero-grid,
+.section-title,
+.section-subtitle{
+    color: white;
+}
+
 .dark-mode .accordion-button {
+    background-color: #333;
+    color: white;
+}
+.dark-mode .accordion-content {
     background-color: #333;
     color: white;
 }
@@ -372,7 +383,7 @@ body.tritanopia .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:46px;
+    width: 46px;
 }
 
 .accessibility-btn {
