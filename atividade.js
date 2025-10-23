@@ -36,6 +36,20 @@ let tamanhoDaLetra = 100;
 let modoEscuro = false;
 let leitorLigado = false;
 
+const modoEscuroSalvo = localStorage.getItem('modoEscuro') === 'true';
+modoEscuro = modoEscuroSalvo;
+document.body.classList.toggle("dark-mode", modoEscuro);
+
+
+
+const modoDaltonismoSalvo = localStorage.getItem('modoDaltonismo');
+if (modoDaltonismoSalvo) {
+    document.body.classList.add(modoDaltonismoSalvo);
+}
+
+
+
+
 // let modoPronatopia = false
 // let modoDeuteratopia = false
 // let modoTritanopia = false

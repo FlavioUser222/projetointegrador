@@ -31,6 +31,7 @@ body {
     flex-direction: column;
     text-align: center;
     position: relative;
+
 }
 
 :focus {
@@ -283,14 +284,15 @@ video {
     border-radius: 6px;
 }
 
+
+
 .tudo {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
     justify-content: center;
-    display: flex;
-    justify-content: center;
+
 }
 
 .abutt {
@@ -370,26 +372,23 @@ body.tritanopia .hero {
 
 /* --- MENU HAMBURGUER --- */
 .menu-hamburguer {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     z-index: 1000;
 }
 
 .menu-btn {
-    background: #0077ff;
-    color: white;
-    font-size: 24px;
+    background: transparent;
+    /* remove a cor de fundo */
     border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
+    /* remove a borda */
+    padding: 0;
+    /* remove espaçamento interno extra */
     cursor: pointer;
-    transition: background 0.3s;
+    /* mantém o cursor de clique */
 }
 
-.menu-btn:hover {
-    background: #005fcc;
-}
 
 /* --- BOTÕES DE ACESSIBILIDADE --- */
 .accessibility-controls {
@@ -455,14 +454,14 @@ body.tritanopia .hero {
 }
 
 
-.goBack{
-    position: fixed;
+.goBack {
+    position: absolute;
     top: 20px;
     left: 20px;
     z-index: 999;
 }
 
-.goBack img{
+.goBack img {
     width: 50px;
     height: 50px;
 }
@@ -477,6 +476,16 @@ body.tritanopia .hero {
 
 
 @media (max-width:800px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 3rem;
+        margin-bottom: 2rem;
+
+    }
+
     .header-subtitle {
         flex-wrap: wrap;
         font-size: 1.5rem;
@@ -495,6 +504,13 @@ body.tritanopia .hero {
         justify-content: center;
         flex-wrap: nowrap
     }
+    
+    .video-card video {
+        width: 270px;
+    }
+
+
+
 
 
 

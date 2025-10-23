@@ -128,25 +128,17 @@ body {
 
 /* --- MENU HAMBURGUER --- */
 .menu-hamburguer {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 1000;
 }
 
 .menu-btn {
-  background: #0077ff;
-  color: white;
-  font-size: 24px;
+  background: transparent;
   border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
+  padding: 0;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-.menu-btn:hover {
-  background: #005fcc;
 }
 
 /* --- BOTÕES DE ACESSIBILIDADE --- */
@@ -188,7 +180,7 @@ body {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content:center ;
+    justify-content: center;
     border: none;
     background-color: #e0e8f0;
     color: #003366;

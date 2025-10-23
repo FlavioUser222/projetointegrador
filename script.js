@@ -16,7 +16,21 @@ let botaoLeitor = document.getElementById("toggleVoice");
 // let botaoDaltonismoDeuteranopia = document.getElementById('toggleColors2')
 // let botaoDaltonismoTritanopia = document.getElementById('toggleColors3')
 
+
+const modoEscuroSalvo = localStorage.getItem('modoEscuro') === 'true';
+modoEscuro = modoEscuroSalvo;
+document.body.classList.toggle("dark-mode", modoEscuro);
+
+const modoDaltonismoSalvo = localStorage.getItem('modoDaltonismo');
+if (modoDaltonismoSalvo) {
+    document.body.classList.add(modoDaltonismoSalvo);
+}
+
+
+
+
 let botaoVideos = document.getElementById("botaoVideos")
+
 
 botaoMais.onclick = function () {
     if (tamanhoDaLetra == 170) {
@@ -86,6 +100,7 @@ botaoMenos.onclick = function () {
 botaoEscuro.onclick = function () {
     modoEscuro = !modoEscuro;
     document.body.classList.toggle("dark-mode", modoEscuro);
+    localStorage.setItem('modoEscuro', modoEscuro);
 };
 
 botaoLeitor.onclick = function () {
