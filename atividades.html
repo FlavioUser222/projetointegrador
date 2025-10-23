@@ -5,26 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inclusive.com - Tecnologia Simplificada para Você</title>
-      <link rel="stylesheet" href="atividade.css">
-      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="atividade.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
 
 <body>
 
-    <div class="accessibility-controls" role="toolbar" aria-label="Ferramentas de acessibilidade">
-        <button class="accessibility-btn" id="increaseFont" aria-label="Aumentar tamanho da fonte">A+</button>
-        <button class="accessibility-btn" id="decreaseFont" aria-label="Diminuir tamanho da fonte">A-</button>
-        <button class="accessibility-btn" id="toggleContrast" aria-label="Ativar modo escuro">🌙</button>
-        <button class="accessibility-btn" id="toggleVoice" aria-label="Ativar leitor de tela">🔊</button>
-        <button class="accessibility-btn" id="toggleColors" aria-label="Trocar cores do site">🎨</button>
+    <div class="menu-hamburguer">
+        <button id="menuToggle" class="menu-btn" aria-label="Abrir menu de acessibilidade">☰</button>
+
+        <div class="accessibility-controls" role="toolbar" id="accessibilityMenu"
+            aria-label="Ferramentas de acessibilidade">
+            <button class="accessibility-btn" id="increaseFont" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="accessibility-btn" id="decreaseFont" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="accessibility-btn" id="toggleContrast" aria-label="Ativar modo escuro"><img
+                    src="forma-de-fase-da-lua-crescente-com-duas-estrelas.png" alt=""></button>
+            <button class="accessibility-btn" id="toggleVoice" aria-label="Ativar leitor de tela"><img
+                    src="aumentar-o-volume.png" alt=""></button>
+            <button class="accessibility-btn" id="btnDaltonismo" aria-label="Trocar cores do site"><img
+                    src="oculos-escuros.png" alt=""></button>
+            <a href="admin.html"><img src="engrenagem.png" alt="icone administrador"></a>
+        </div>
+    </div>
     </div>
 
+
     <header class="header">
-        <div class="container header-content">
+        <div class="header-content">
             <img class="logo" src="logo.png" alt="Logo">
-            <h1 class="header-title">Inclusive.com</h1>
-            <p class="header-subtitle">Tecnologia Simplificada para Você</p>
+
+            <div class="textHeader">
+                <h1 class="header-title">Inclusive.com</h1>
+                <p class="header-subtitle">Tecnologia Simplificada para Você</p>
+            </div>
         </div>
     </header>
 
@@ -60,4 +74,5 @@
 
     <script src="atividade.js"></script>
 </body>
+
 </html>

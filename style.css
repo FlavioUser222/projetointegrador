@@ -250,6 +250,15 @@ body {
     background-color: #2b2b2b;
     border-color: #444;
 }
+.dark-mode .atividade {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+.dark-mode .atividade-title{
+    color: white !important;
+}
+
 
 video {
     background-color: rgba(160, 155, 157, 0.685);
@@ -398,3 +407,17 @@ body.tritanopia .hero {
 .accessibility-btn:hover {
     background: #ddd;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
