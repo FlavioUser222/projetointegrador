@@ -430,7 +430,7 @@ body.tritanopia .hero {
     display: none;
     width: 100%;
     position: absolute;
-    top: 370px;
+    top: 360px;
     max-width: 500px;
     z-index: 999;
     padding: 10px;
