@@ -153,11 +153,46 @@ document.getElementById('btnDaltonismo').addEventListener('click', ativarDaltoni
 
 let ratingDiv = document.getElementById('ratingDiv')
 
+let userId = localStorage.getItem("user_id");
+if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem("user_id", userId);
+}
+
 
 ratingDiv.querySelectorAll('input').forEach(star => {
-    star.addEventListener('change', (e) => {
-        console.log(`Usuário avaliou ${video.nome} com ${e.target.value} estrelas`);
-        // Aqui você pode enviar para o backend:
-        // fetch('https://seu-endpoint.com/avaliacoes', { method: 'POST', body: JSON.stringify({...}) })
+
+    star.addEventListener('change', async (e) => {
+        const rating = e.target.value
+        const data = {
+            user_id: userId,
+            video_id: video.id, 
+            rating: parseInt(rating)
+        };
+
+        try {
+            const response = await fetch('https://projeto-pi-onrender.onrender.com/avaliacoes', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert(`⭐ Avaliação enviada! Você deu ${rating} estrelas.`);
+            } else {
+                alert("❌ Erro ao enviar avaliação");
+            }
+        } catch (error) {
+            console.error("Erro:", error);
+            alert("⚠️ Falha na conexão ao enviar avaliação");
+        }
     });
+});
+
+
+
+
+
+
+});
 });
