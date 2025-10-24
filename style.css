@@ -534,7 +534,7 @@ body.tritanopia .hero {
 }
 
 .star-rating {
-    display: inline-flex;
+    display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     gap: 5px;

@@ -94,6 +94,8 @@
             let res = await fetch("https://projeto-pi-onrender.onrender.com/videos")
             let divVideos = document.getElementById('videoPlayer')
 
+            let resPercentual = await fetch('https://projeto-pi-onrender.onrender.com/avaliacoes/percentual')
+            let listaPercentual = await resPercentual.json()
 
             listaDeVideos = await res.json()
 
@@ -118,6 +120,12 @@
                 let descricao = document.createElement('p')
                 descricao.innerText = video.descricao
                 div.appendChild(descricao)
+
+
+                let percentualObj = listaPercentual.find(p => p.video_id === video.id);
+                let percentual = percentualObj ? parseFloat(Number(percentualObj.media).toFixed(1)) : 0;
+
+
 
                 botaoDesc.addEventListener('click', () => {
 
@@ -155,7 +163,6 @@
                     }
                     return id;
                 })();
-
 
 
                 ratingDiv.querySelectorAll('input').forEach(star => {
@@ -208,6 +215,11 @@
                 vid.width = 320
                 vid.height = 280
 
+                let mediaSpan = document.createElement('span');
+                mediaSpan.className = 'media-avaliacao';
+                mediaSpan.innerText = `${percentual}`;
+                let divSpan = document.createElement('div')
+                
                 card.appendChild(titulo)
                 card.appendChild(vid)
                 divStarButtons.appendChild(botaoDesc)
