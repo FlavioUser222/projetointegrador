@@ -167,7 +167,7 @@ ratingDiv.querySelectorAll('input').forEach(star => {
         const data = {
             user_id: userId,
             video_id: video.id, 
-            rating: parseInt(rating)
+            nota: parseInt(rating)
         };
 
         try {
@@ -176,7 +176,6 @@ ratingDiv.querySelectorAll('input').forEach(star => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-
             if (response.ok) {
                 alert(`⭐ Avaliação enviada! Você deu ${rating} estrelas.`);
             } else {
@@ -189,10 +188,3 @@ ratingDiv.querySelectorAll('input').forEach(star => {
     });
 });
 
-
-
-
-
-
-});
-});
