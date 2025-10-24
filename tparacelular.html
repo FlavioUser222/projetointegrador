@@ -82,6 +82,7 @@
 
 <script>
     let listaDeVideos = []
+    let avaliacoesUsuario = JSON.parse(localStorage.getItem("avaliacoes")) || {};
 
 
     async function mostrarVideos() {
@@ -161,6 +162,14 @@
                     star.addEventListener('change', async (e) => {
                         const rating = e.target.value;
                         console.log(rating)
+                        if (avaliacoesUsuario[video.id]) {
+                            alert("⚠️ Você já avaliou este vídeo!");
+                            ratingDiv.querySelector(`input[value="${avaliacoesUsuario[video.id]}"]`).checked = true;
+                            return;
+                        }
+
+                        avaliacoesUsuario[video.id] = parseInt(rating);
+                        localStorage.setItem("avaliacoes", JSON.stringify(avaliacoesUsuario));
 
                         const data = {
                             video_id: video.id,
