@@ -122,12 +122,12 @@ function falar(texto) {
     }
 }
 
+let elementos = document.querySelectorAll("h1, h2, p, button, a")
 
-let elementos = document.querySelectorAll("h1, h2, p, button");
 for (let item of elementos) {
-    item.addEventListener("focus", function () {
-        falar(item.innerText);
-    });
+    item.addEventListener("focus", () => falar(item.innerText));
+    item.addEventListener("mouseover", () => falar(item.innerText));
+    item.addEventListener("click", () => falar(item.innerText));
 }
 
 document.onkeydown = function (tecla) {
@@ -135,7 +135,6 @@ document.onkeydown = function (tecla) {
     if (tecla.ctrlKey && tecla.key === "-") botaoMenos.click();
     if (tecla.ctrlKey && tecla.key.toLowerCase() === "m") botaoEscuro.click();
 };
-
 
 let botoesAcordeao = document.querySelectorAll(".accordion-button");
 for (let botao of botoesAcordeao) {
