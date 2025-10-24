@@ -132,8 +132,26 @@
                 })
 
 
+                let divStarButtons = document.createElement('div')
+                divStarButtons.className = "divStarButton"
+
+                let ratingDiv = document.createElement('div');
+
+                ratingDiv.classList.add('star-rating');
+                ratingDiv.innerHTML = `
+  <input type="radio" id="star5-${video.id}" name="rating-${video.id}" value="5"><label for="star5-${video.id}">★</label>
+  <input type="radio" id="star4-${video.id}" name="rating-${video.id}" value="4"><label for="star4-${video.id}">★</label>
+  <input type="radio" id="star3-${video.id}" name="rating-${video.id}" value="3"><label for="star3-${video.id}">★</label>
+  <input type="radio" id="star2-${video.id}" name="rating-${video.id}" value="2"><label for="star2-${video.id}">★</label>
+  <input type="radio" id="star1-${video.id}" name="rating-${video.id}" value="1"><label for="star1-${video.id}">★</label>
+`;
+
+
+
+
                 // let botaoPlay = document.createElement('div')
                 // botaoPlay.className = 'botaoPlay'
+
 
                 let vid = document.createElement('video')
                 vid.poster = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
@@ -146,6 +164,9 @@
                 // card.appendChild(botaoPlay)
                 card.appendChild(vid)
                 card.appendChild(botaoDesc)
+                divStarButtons.appendChild(botaoDesc)
+                divStarButtons.appendChild(ratingDiv)
+                card.appendChild(divStarButtons);
                 divVideos.appendChild(card)
             });
 

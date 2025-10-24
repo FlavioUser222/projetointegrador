@@ -13,7 +13,6 @@ body {
     transition: all 0.3s;
 }
 
-
 .videoPlayer {
     display: flex;
     flex-wrap: wrap;
@@ -523,9 +522,40 @@ body.tritanopia .hero {
     }
 
 
+}
 
 
 
+.divStarButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 5px;
+}
 
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input:checked~label {
+    color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label {
+    color: gold;
 }

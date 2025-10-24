@@ -148,3 +148,16 @@ function ativarDaltonismo() {
 }
 
 document.getElementById('btnDaltonismo').addEventListener('click', ativarDaltonismo);
+
+
+
+let ratingDiv = document.getElementById('ratingDiv')
+
+
+ratingDiv.querySelectorAll('input').forEach(star => {
+    star.addEventListener('change', (e) => {
+        console.log(`Usuário avaliou ${video.nome} com ${e.target.value} estrelas`);
+        // Aqui você pode enviar para o backend:
+        // fetch('https://seu-endpoint.com/avaliacoes', { method: 'POST', body: JSON.stringify({...}) })
+    });
+});
