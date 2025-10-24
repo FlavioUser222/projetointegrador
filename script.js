@@ -107,7 +107,7 @@ if (botaoVideos) {
     };
 }
 
-// 🎛️ Menu de acessibilidade
+
 const menuToggle = document.getElementById("menuToggle");
 const accessibilityMenu = document.getElementById("accessibilityMenu");
 
