@@ -62,8 +62,11 @@ body {
 }
 
 .resposta {
-  display: block;
-  margin: 0.4rem 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: center;
   padding: 0.7rem 1rem;
   border: none;
   background-color: #e0e8f0;
