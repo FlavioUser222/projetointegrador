@@ -105,6 +105,12 @@ body {
     height: 23px;
     object-fit: cover;
 }
+.conceito{
+    cursor: pointer;
+}
+
+
+
 
 .hero-title {
     font-size: 2rem;
