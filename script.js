@@ -38,7 +38,7 @@ botaoEscuro.onclick = function () {
     localStorage.setItem('modoEscuro', modoEscuro);
 };
 
-// 🗣️ Função principal de fala
+
 function falar(texto) {
     if (leitorLigado && texto.trim() !== "") {
         let som = new SpeechSynthesisUtterance(texto);
@@ -48,10 +48,10 @@ function falar(texto) {
     }
 }
 
-// 🆕 Função que lê todo o texto do site
 function lerPaginaCompleta() {
-    let textoCompleto = "";
-    let elementos = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li, button, a, label, span, figcaption");
+    let textoCompleto = ""
+
+    let elementos = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li, button, a, label, span, figcaption")
 
     elementos.forEach(el => {
         let conteudo = el.innerText.trim();
@@ -61,19 +61,18 @@ function lerPaginaCompleta() {
     falar("Lendo conteúdo da página. " + textoCompleto);
 }
 
-// 🧠 Ativar ou desativar leitor
 botaoLeitor.onclick = function () {
     leitorLigado = !leitorLigado;
     if (leitorLigado) {
         alert("Leitor de tela ligado!");
-        lerPaginaCompleta(); // 🔊 lê tudo assim que é ativado
+        lerPaginaCompleta()
     } else {
         window.speechSynthesis.cancel();
         alert("Leitor de tela desligado!");
     }
 };
 
-// 🖱️ Ler ao passar o mouse, clicar ou focar
+
 let elementos = document.querySelectorAll("h1, h2, h3, p, button, a, li, label, span");
 for (let item of elementos) {
     item.addEventListener("focus", () => falar(item.innerText));
@@ -81,14 +80,13 @@ for (let item of elementos) {
     item.addEventListener("click", () => falar(item.innerText));
 }
 
-// ⌨️ Atalhos de teclado
+
 document.onkeydown = function (tecla) {
     if (tecla.ctrlKey && tecla.key === "+") botaoMais.click();
     if (tecla.ctrlKey && tecla.key === "-") botaoMenos.click();
     if (tecla.ctrlKey && tecla.key.toLowerCase() === "m") botaoEscuro.click();
 };
 
-// 📦 Acordeão acessível
 let botoesAcordeao = document.querySelectorAll(".accordion-button");
 for (let botao of botoesAcordeao) {
     botao.onclick = function () {
@@ -101,7 +99,7 @@ for (let botao of botoesAcordeao) {
     };
 }
 
-// 🎬 Botão de vídeos
+
 if (botaoVideos) {
     botaoVideos.onclick = function () {
         falar("Abrindo página de vídeos");

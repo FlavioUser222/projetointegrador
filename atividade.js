@@ -1,37 +1,4 @@
 
-// let tamanhoFonte = 100;
-
-// const btnAumentar = document.getElementById("increaseFont");
-// const btnDiminuir = document.getElementById("decreaseFont");
-// const btnContraste = document.getElementById("toggleContrast");
-// const btnCores = document.getElementById("toggleColors");
-
-// btnAumentar.addEventListener("click", () => {
-//   tamanhoFonte += 10;
-//   if (tamanhoFonte > 30) {
-//     return
-//   }
-
-//   document.body.style.fontSize = `${tamanhoFonte}%`;
-// });
-
-// btnDiminuir.addEventListener("click", () => {
-//   if (tamanhoFonte > 50) {
-//     tamanhoFonte -= 10;
-//     document.body.style.fontSize = `${tamanhoFonte}%`
-//   }
-// });
-
-// btnContraste.addEventListener("click", () => {
-//   document.body.classList.toggle("modo-escuro")
-// });
-
-// btnCores.addEventListener("click", () => {
-//   document.body.classList.toggle("cores-alternativas");
-// });
-
-
-
 let tamanhoDaLetra = 100;
 let modoEscuro = false;
 let leitorLigado = false;
@@ -44,24 +11,15 @@ document.body.classList.toggle("dark-mode", modoEscuro);
 
 const modoDaltonismoSalvo = localStorage.getItem('modoDaltonismo');
 if (modoDaltonismoSalvo) {
-    document.body.classList.add(modoDaltonismoSalvo);
+  document.body.classList.add(modoDaltonismoSalvo);
 }
 
-
-
-
-// let modoPronatopia = false
-// let modoDeuteratopia = false
-// let modoTritanopia = false
 
 let botaoMais = document.getElementById("increaseFont");
 let botaoMenos = document.getElementById("decreaseFont");
 let botaoEscuro = document.getElementById("toggleContrast");
 let botaoLeitor = document.getElementById("toggleVoice");
 
-// let botaoDaltonismoProtanopia = document.getElementById('toggleColors1')
-// let botaoDaltonismoDeuteranopia = document.getElementById('toggleColors2')
-// let botaoDaltonismoTritanopia = document.getElementById('toggleColors3')
 
 let botaoVideos = document.getElementById("botaoVideos")
 
@@ -81,72 +39,16 @@ botaoMenos.onclick = function () {
 };
 
 
-// function limparModosDaltonismo() {
-//     document.body.classList.remove("protanopia", "deuteranopia", "tritanopia", "dark-mode");
-//     modoPronatopia = false;
-//     modoDeuteratopia = false;
-//     modoTritanopia = false;
-//     modoEscuro = false
-// }
-
-// function ativarDaltonismoTritanopia() {
-//     const ativo = !modoTritanopia;
-//     limparModosDaltonismo();
-//     modoTritanopia = ativo;
-//     if (ativo) {
-//         document.body.classList.add("tritanopia");
-//         alert("Modo daltonismo tritanopia")
-//     }
-// }
-
-// function ativarDaltonismoDeuteratopia() {
-//     const ativo = !modoDeuteratopia;
-//     limparModosDaltonismo();
-//     modoDeuteratopia = ativo;
-//     if (ativo) {
-//         document.body.classList.add("deuteranopia");
-//         alert("Modo daltonismo deuteratopia")
-//     }
-
-// }
-
-
-
-
-
-// function ativarDaltonismoProtanopia() {
-//     const ativo = !modoPronatopia;
-//     limparModosDaltonismo();
-//     modoPronatopia = ativo;
-//     if (ativo) {
-//         document.body.classList.add("protanopia");
-//         alert("Modo daltonismo protanopia")
-//     }
-// }
-
-// document.getElementById('toggleColors1').addEventListener('click', ativarDaltonismoTritanopia)
-// document.getElementById('toggleColors2').addEventListener('click', ativarDaltonismoDeuteratopia)
-// document.getElementById('toggleColors3').addEventListener('click', ativarDaltonismoProtanopia)
-
-
-
 botaoEscuro.onclick = function () {
   modoEscuro = !modoEscuro;
   document.body.classList.toggle("dark-mode", modoEscuro);
 };
 
-botaoLeitor.onclick = function () {
-  leitorLigado = !leitorLigado;
-  if (leitorLigado) {
-    alert("Leitor de tela ligado!");
-  } else {
-    alert("Leitor de tela desligado!");
-  }
-};
+
 
 
 function falar(texto) {
-  if (leitorLigado) {
+  if (leitorLigado && texto.trim() !== "") {
     let som = new SpeechSynthesisUtterance(texto);
     som.lang = "pt-BR";
     window.speechSynthesis.cancel();
@@ -154,12 +56,36 @@ function falar(texto) {
   }
 }
 
+function lerPaginaCompleta() {
+  let textoCompleto = ""
 
-let elementos = document.querySelectorAll("h1, h2, p, button");
-for (let item of elementos) {
-  item.addEventListener("focus", function () {
-    falar(item.innerText);
+  let elementos = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li, button, a, label, span, figcaption")
+
+  elementos.forEach(el => {
+    let conteudo = el.innerText.trim();
+    if (conteudo) textoCompleto += conteudo + ". ";
   });
+
+  falar("Lendo conteúdo da página. " + textoCompleto);
+}
+
+botaoLeitor.onclick = function () {
+  leitorLigado = !leitorLigado;
+  if (leitorLigado) {
+    alert("Leitor de tela ligado!");
+    lerPaginaCompleta()
+  } else {
+    window.speechSynthesis.cancel();
+    alert("Leitor de tela desligado!");
+  }
+};
+
+
+let elementos = document.querySelectorAll("h1, h2, h3, p, button, a, li, label, span");
+for (let item of elementos) {
+  item.addEventListener("focus", () => falar(item.innerText));
+  item.addEventListener("mouseover", () => falar(item.innerText));
+  item.addEventListener("click", () => falar(item.innerText));
 }
 
 document.onkeydown = function (tecla) {
