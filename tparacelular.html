@@ -146,11 +146,50 @@
   <input type="radio" id="star1-${video.id}" name="rating-${video.id}" value="1"><label for="star1-${video.id}">★</label>
 `;
 
+                const user_id = (() => {
+                    let id = localStorage.getItem("user_id");
+                    if (!id) {
+                        id = crypto.randomUUID();
+                        localStorage.setItem("user_id", id);
+                    }
+                    return id;
+                })();
 
 
 
-                // let botaoPlay = document.createElement('div')
-                // botaoPlay.className = 'botaoPlay'
+                ratingDiv.querySelectorAll('input').forEach(star => {
+                    star.addEventListener('change', async (e) => {
+                        const rating = e.target.value;
+                        console.log(rating)
+
+
+                        const data = {
+                            video_id: video.id, 
+                            user_id: user_id,
+                            nota: parseInt(rating)
+                        };
+
+                        console.log(data)
+
+                        try {
+                            const response = await fetch('https://projeto-pi-onrender.onrender.com/avaliacao', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(data)
+                            });
+
+
+                            if (response.ok) {
+                                alert(`⭐ Avaliação enviada! Você deu ${rating} estrelas.`);
+                            } else {
+                                alert("❌ Erro ao enviar avaliação");
+                            }
+                        } catch (error) {
+                            console.error("Erro:", error);
+                            alert("⚠️ Falha na conexão ao enviar avaliação");
+                        }
+                    });
+                });
 
 
                 let vid = document.createElement('video')
@@ -161,9 +200,7 @@
                 vid.height = 280
 
                 card.appendChild(titulo)
-                // card.appendChild(botaoPlay)
                 card.appendChild(vid)
-                card.appendChild(botaoDesc)
                 divStarButtons.appendChild(botaoDesc)
                 divStarButtons.appendChild(ratingDiv)
                 card.appendChild(divStarButtons);
