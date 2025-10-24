@@ -162,9 +162,8 @@
                         const rating = e.target.value;
                         console.log(rating)
 
-
                         const data = {
-                            video_id: video.id, 
+                            video_id: video.id,
                             user_id: user_id,
                             nota: parseInt(rating)
                         };
@@ -177,10 +176,11 @@
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify(data)
                             });
-
-
                             if (response.ok) {
                                 alert(`⭐ Avaliação enviada! Você deu ${rating} estrelas.`);
+                            } else if (response.status == 400) {
+                                const err = await response.json();
+                                alert(`⚠️ ${err.error}`);
                             } else {
                                 alert("❌ Erro ao enviar avaliação");
                             }
