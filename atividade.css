@@ -76,6 +76,10 @@ body {
   transition: background 0.3s;
 }
 
+.atividade {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 .resposta:hover {
   background-color: #ccdff7;
 }
