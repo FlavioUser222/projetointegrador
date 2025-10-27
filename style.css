@@ -511,15 +511,30 @@ body.tritanopia .hero {
 
     .video-card video {
         width: 270px;
-        z-index: 1;
     }
+
+
+    .star-rating label {
+        font-size: 1rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .divStarButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
 
 
 }
 
 
 
-.divStarButton{
+.divStarButton {
     display: flex;
     align-items: center;
     justify-content: space-between;
