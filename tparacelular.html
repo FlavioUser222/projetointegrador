@@ -218,12 +218,14 @@
                 let mediaSpan = document.createElement('span');
                 mediaSpan.className = 'media-avaliacao';
                 mediaSpan.innerText = `${percentual}`;
-                let divSpan = document.createElement('div')
+
                 
+
                 card.appendChild(titulo)
                 card.appendChild(vid)
                 divStarButtons.appendChild(botaoDesc)
                 divStarButtons.appendChild(ratingDiv)
+                divStarButtons.appendChild(mediaSpan)
                 card.appendChild(divStarButtons);
                 divVideos.appendChild(card)
             });
