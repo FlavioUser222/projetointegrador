@@ -121,6 +121,13 @@ function aplicarDaltonismo(tipo) {
     if (tipo) {
         document.body.classList.add(tipo);
         localStorage.setItem('modoDaltonismo', tipo);
+        
+        document.body.classList.remove("dark-mode");
+        modoEscuro = false;
+        localStorage.setItem('modoEscuro', false);
+
+
+
     } else {
         localStorage.removeItem('modoDaltonismo');
     }
