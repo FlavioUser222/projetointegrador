@@ -441,7 +441,7 @@ body.tritanopia .hero {
     display: none;
     width: 100%;
     position: absolute;
-    top: 360px;
+    top: 375px;
     max-width: 500px;
     z-index: 999;
     padding: 10px;
@@ -510,7 +510,7 @@ body.tritanopia .hero {
     }
 
     .video-card video {
-        width: 270px;
+        width: 300px;
     }
 
 
