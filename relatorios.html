@@ -24,12 +24,40 @@
 
     <div class="container">
         <h1>Relatorios</h1>
+        <div class="content" id="content">
+            <div class="videosContent" id="videosContent">
 
+            </div>
+        </div>
 
 
     </div>
 
+    <script>
+        async function mostrarVideo() {
+            try {
+                let res = await fetch('https://projeto-pi-onrender.onrender.com/videos');
+                videos = await res.json()
+                let videosContent = document.getElementById('videosContent');
 
+                videos.forEach((video) => {
+                    let videoCard = document.createElement('div')
+                    videoCard.className = "videoCard"
+                    let h1 = document.createElement('h1')
+                    h1.textContent = video.nome
+
+
+                    videoCard.appendChild(h1)
+                    videosContent.appendChild(videoCard)
+
+
+                });
+            } catch (err) {
+                console.error('Erro ao carregar vídeos:', err);
+            }
+        }
+        mostrarVideo()
+    </script>
 </body>
 
 </html>
