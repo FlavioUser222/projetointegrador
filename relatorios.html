@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatorios</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="controler.css">
 </head>
+<style>
+    img {
+        width: 200px;
+        height: 180px;
+    }
+</style>
 
 <body>
 
@@ -47,9 +54,17 @@
 
                 videos.forEach((video) => {
                     let videoCard = document.createElement('div')
+                    let img = document.createElement('img')
                     videoCard.className = "videoCard"
                     let h1 = document.createElement('h1')
                     h1.textContent = video.nome
+                    if (video.thumbnail) {
+                        img.src = `https://projeto-pi-onrender.onrender.com/uploads/${video.thumbnail}`;
+                        img.alt = `Thumbnail do vídeo ${video.nome}`;
+                    } else {
+                        img.src = 'img/sem-thumb.png';
+                        img.alt = 'Sem thumbnail disponível';
+                    }
                     let percentualObj = relatorios.find(p => p.video_id === video.id);
                     let percentual = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
                     let media = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
@@ -58,6 +73,8 @@
                     let p = document.createElement('p');
                     p.textContent = `Média: ${media} | Percentual: ${percentual}% | Total de avaliações: ${totalAvaliacoes}`;
 
+
+                    videoCard.appendChild(img)
                     videoCard.appendChild(h1)
                     videoCard.appendChild(p)
                     videosContent.appendChild(videoCard)
