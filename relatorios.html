@@ -13,7 +13,8 @@
         width: 200px;
         height: 180px;
     }
-    .videoCard{
+
+    .videoCard {
         border-radius: 10px;
         border: 1px solid rgb(34, 33, 33);
         padding: 10px;
@@ -48,6 +49,21 @@
 
     <script>
 
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const videoEditadoId = null
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+
+
+
+
+
+
+
         let videos = []
         let relatorios = []
         async function mostrarVideo() {
@@ -73,11 +89,11 @@
                     }
                     let percentualObj = relatorios.find(p => p.video_id === video.id);
                     let percentual = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
-                    let media = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
+                    let media = percentualObj ? parseFloat(percentualObj.percentual).toFixed(1) : "0.0";
                     let totalAvaliacoes = percentualObj ? percentualObj.total_avaliacoes : "0";
 
                     let p = document.createElement('p');
-                    p.textContent = `Média: ${media} | Percentual: ${percentual}% | Total de avaliações: ${totalAvaliacoes}`;
+                    p.textContent = `Média: ${percentual} | Percentual: ${media}% | Total de avaliações: ${totalAvaliacoes}`;
 
 
                     videoCard.appendChild(img)
