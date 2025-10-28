@@ -34,10 +34,15 @@
     </div>
 
     <script>
+
+        let videos = []
+        let relatorios = []
         async function mostrarVideo() {
             try {
                 let res = await fetch('https://projeto-pi-onrender.onrender.com/videos');
                 videos = await res.json()
+                let resRelatorios = await fetch('https://projeto-pi-onrender.onrender.com/avaliacoes/percentual')
+                relatorios = await resRelatorios.json()
                 let videosContent = document.getElementById('videosContent');
 
                 videos.forEach((video) => {
@@ -45,9 +50,16 @@
                     videoCard.className = "videoCard"
                     let h1 = document.createElement('h1')
                     h1.textContent = video.nome
+                    let percentualObj = relatorios.find(p => p.video_id === video.id);
+                    let percentual = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
+                    let media = percentualObj ? parseFloat(percentualObj.media).toFixed(1) : "0.0";
+                    let totalAvaliacoes = percentualObj ? percentualObj.total_avaliacoes : "0";
 
+                    let p = document.createElement('p');
+                    p.textContent = `Média: ${media} | Percentual: ${percentual}% | Total de avaliações: ${totalAvaliacoes}`;
 
                     videoCard.appendChild(h1)
+                    videoCard.appendChild(p)
                     videosContent.appendChild(videoCard)
 
 
