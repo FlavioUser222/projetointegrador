@@ -18,17 +18,33 @@ if (modoDaltonismoSalvo) {
 
 let botaoVideos = document.getElementById("botaoVideos");
 
+
 botaoMais.onclick = function () {
-    if (tamanhoDaLetra < 170) {
+    if (tamanhoDaLetra < 140) {
         tamanhoDaLetra += 10;
         document.body.style.fontSize = tamanhoDaLetra + "%";
+
+        document.querySelectorAll("h2").forEach(el => {
+            el.style.fontSize = tamanhoDaLetra + "%";
+        });
+
+        document.querySelectorAll("p").forEach(el => {
+            el.style.fontSize = tamanhoDaLetra + "%";
+        });
     }
 };
 
 botaoMenos.onclick = function () {
-    if (tamanhoDaLetra > 80) {
+    if (tamanhoDaLetra > 100) {
         tamanhoDaLetra -= 10;
         document.body.style.fontSize = tamanhoDaLetra + "%";
+        document.querySelectorAll("h2").forEach(el => {
+            el.style.fontSize = tamanhoDaLetra + "%";
+        });
+
+        document.querySelectorAll("p").forEach(el => {
+            el.style.fontSize = tamanhoDaLetra + "%";
+        });
     }
 };
 
@@ -121,7 +137,7 @@ function aplicarDaltonismo(tipo) {
     if (tipo) {
         document.body.classList.add(tipo);
         localStorage.setItem('modoDaltonismo', tipo);
-        
+
         document.body.classList.remove("dark-mode");
         modoEscuro = false;
         localStorage.setItem('modoEscuro', false);
