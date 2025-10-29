@@ -8,13 +8,25 @@
     <link rel="stylesheet" href="admin.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 
+
 </head>
 
 <body>
 
 
+    <header class="header">
+        <div class="header-content">
+            <img class="logo" src="logo.png" alt="Logo">
+            <div class="textHeader">
+                <h1 class="header-title">Inclusive.com</h1>
+                <p class="header-subtitle">Tecnologia Simplificada para Você</p>
+            </div>
 
+        </div>
+
+    </header>
     <div class="container">
+        <div class="content">
         <div class="goBack">
             <a href="index.html"><img src="icons8-voltar-48.png" alt="botao para voltar"></a>
         </div>
@@ -22,7 +34,17 @@
         <input type="text" id="email" placeholder="Email" autocomplete="off">
         <input type="password" id="senha" placeholder="Senha" autocomplete="off">
         <button onclick="postarDados()">Entrar</button>
+        </div>
     </div>
+    <footer class="footer">
+        <p class="footer-mensagem">Feito com 💙 para facilitar o aprendizado digital</p>
+        <p class="footer-credito">© 2025 Inclusive.com</p>
+    </footer>
+
+
+
+
+
     <script>
 
         async function postarDados() {
