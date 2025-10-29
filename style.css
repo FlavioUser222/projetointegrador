@@ -430,6 +430,8 @@ body.tritanopia .hero {
     padding: 6px;
     cursor: pointer;
     font-size: 18px;
+    width: 35px;
+    height: 35px;
 }
 
 .accessibility-btn:hover {
