@@ -35,7 +35,7 @@ botaoMais.onclick = function () {
 };
 
 botaoMenos.onclick = function () {
-    if (tamanhoDaLetra > 100) {
+    if (tamanhoDaLetra > 110) {
         tamanhoDaLetra -= 10;
         document.body.style.fontSize = tamanhoDaLetra + "%";
         document.querySelectorAll("h2").forEach(el => {
