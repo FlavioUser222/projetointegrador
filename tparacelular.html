@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
+
 <body>
 
     <div class="goBack">
@@ -137,7 +138,6 @@
                     }
                 })
 
-
                 let divStarButtons = document.createElement('div')
                 divStarButtons.className = "divStarButton"
 
@@ -161,7 +161,7 @@
                     return id;
                 })();
 
-
+  
                 ratingDiv.querySelectorAll('input').forEach(star => {
                     star.addEventListener('change', async (e) => {
                         const rating = e.target.value;
@@ -169,6 +169,7 @@
                         if (avaliacoesUsuario[video.id]) {
                             alert("⚠️ Você já avaliou este vídeo!");
                             ratingDiv.querySelector(`input[value="${avaliacoesUsuario[video.id]}"]`).checked = true;
+
                             return;
                         }
 
@@ -203,6 +204,14 @@
                         }
                     });
                 });
+
+                const avaliacoesSalvas = JSON.parse(localStorage.getItem("avaliacoes")) || {};
+                
+                if (avaliacoesSalvas[video.id]) {
+                    const nota = avaliacoesSalvas[video.id];
+                    const input = ratingDiv.querySelector(`input[value="${nota}"]`);
+                    if (input) input.checked = true;
+                }
 
 
                 let vid = document.createElement('video')
