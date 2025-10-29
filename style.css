@@ -165,6 +165,7 @@ body {
 .section-subtitle {
     color: #4a4a4a;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .accordion-item {
