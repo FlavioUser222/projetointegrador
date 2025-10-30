@@ -49,6 +49,13 @@ botaoMenos.onclick = function () {
 };
 
 botaoEscuro.onclick = function () {
+    const modoDaltonismoAtivo = localStorage.getItem('modoDaltonismo');
+
+    if (modoDaltonismoAtivo) {
+        alert("⚠️ O modo escuro é desativado enquanto o modo daltonismo estiver ativo.");
+        return
+    }
+    
     modoEscuro = !modoEscuro;
     document.body.classList.toggle("dark-mode", modoEscuro);
     localStorage.setItem('modoEscuro', modoEscuro);
@@ -141,9 +148,6 @@ function aplicarDaltonismo(tipo) {
         document.body.classList.remove("dark-mode");
         modoEscuro = false;
         localStorage.setItem('modoEscuro', false);
-
-
-
     } else {
         localStorage.removeItem('modoDaltonismo');
     }
