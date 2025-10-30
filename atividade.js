@@ -24,7 +24,7 @@ let botaoLeitor = document.getElementById("toggleVoice");
 let botaoVideos = document.getElementById("botaoVideos")
 
 botaoMais.onclick = function () {
-  if (tamanhoDaLetra == 170) {
+  if (tamanhoDaLetra == 140) {
     return
   }
   tamanhoDaLetra = tamanhoDaLetra + 10;
@@ -32,7 +32,7 @@ botaoMais.onclick = function () {
 };
 
 botaoMenos.onclick = function () {
-  if (tamanhoDaLetra > 80) {
+  if (tamanhoDaLetra > 110) {
     tamanhoDaLetra = tamanhoDaLetra - 10;
     document.body.style.fontSize = tamanhoDaLetra + "%";
   }
