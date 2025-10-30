@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login admin</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 
@@ -13,7 +14,9 @@
 
 <body>
 
-
+    <div class="goBack">
+        <a href="index.html"><img src="icons8-voltar-48.png" alt="botao para voltar"></a>
+    </div>
     <header class="header">
         <div class="header-content">
             <img class="logo" src="logo.png" alt="Logo">
@@ -27,13 +30,10 @@
     </header>
     <div class="container">
         <div class="content">
-        <div class="goBack">
-            <a href="index.html"><img src="icons8-voltar-48.png" alt="botao para voltar"></a>
-        </div>
-        <h1>Área do administrador</h1>
-        <input type="text" id="email" placeholder="Email" autocomplete="off">
-        <input type="password" id="senha" placeholder="Senha" autocomplete="off">
-        <button onclick="postarDados()">Entrar</button>
+            <h1>Área do administrador</h1>
+            <input type="text" id="email" placeholder="Email" autocomplete="off">
+            <input type="password" id="senha" placeholder="Senha" autocomplete="off">
+            <button onclick="postarDados()">Entrar</button>
         </div>
     </div>
     <footer class="footer">
