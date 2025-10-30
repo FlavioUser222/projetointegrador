@@ -11,6 +11,10 @@
        color: white;
    }
 
+   h1 {
+       text-align: center;
+   }
+
    .header {
        background-color: #003366;
        color: white;
