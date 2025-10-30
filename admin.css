@@ -19,6 +19,7 @@
        justify-content: center;
        padding: 20px;
    }
+
    .header-content {
        display: flex;
        align-items: center;
@@ -65,6 +66,36 @@
    }
 
 
+   .dark-mode .content {
+       background-color: #1a1a1a;
+       color: #ffffff;
+   }
+
+   body.protanopia header,
+   body.protanopia .content {
+       background-color: #0077cc !important;
+       color: #fff !important;
+   }
+
+   body.deuteranopia header,
+   body.deuteranopia .content {
+       background-color: #0066cc !important;
+       color: #fff !important;
+   }
+
+   body.tritanopia {
+       background-color: #f9f9f9 !important;
+       color: #222 !important;
+   }
+
+   body.tritanopia header,
+   body.tritanopia .content {
+       background-color: #33aa33 !important;
+       color: #fff !important;
+   }
+
+
+
    .footer {
        text-align: center;
        padding: 2rem;
@@ -74,18 +105,11 @@
    }
 
 
-
-
    @media(max-width:600px) {
        .container {
            max-width: 400px;
        }
    }
-
-
-
-
-
 
    h1 {
        padding-bottom: 30px;
