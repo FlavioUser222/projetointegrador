@@ -17,23 +17,8 @@
         box-sizing: border-box;
     }
 
-    body {
-        background-color: #fff;
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
-
     input {
         width: 100%;
-    }
-
-    .header-content {
-        display: flex;
-        align-items: center;
-        gap: 20px;
     }
 
     .container {
@@ -42,7 +27,6 @@
         align-items: center;
         max-width: 1300px !important;
     }
-
 
     .main-content {
         display: flex;
@@ -176,6 +160,7 @@
             gap: 100px;
         }
 
+
         .div-inputs,
         .div-texts {
             max-width: 100%;
@@ -234,7 +219,7 @@
 
     <header class="header">
         <div class="header-content">
-            <img class="logo" src="logo.png" alt="Logo">
+            <img class="logo" src="logo.png" alt="Logo escrita Inclusive.com">
             <div class="textHeader">
                 <h1 class="header-title">Inclusive.com</h1>
                 <p class="header-subtitle">Tecnologia Simplificada para Você</p>
@@ -337,12 +322,12 @@
             window.open(doador.linkWhatsApp, '_blank')
             console.log(doador.linkWhatsApp)
 
-            
+
             indiceAtual = (indiceAtual + 1) % doadores.length;
             console.log(indiceAtual)
         });
 
- 
+
         carregarDoadores();
 
         setInterval(carregarDoadores, 30000);
