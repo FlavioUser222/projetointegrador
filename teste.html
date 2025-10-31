@@ -175,6 +175,17 @@
         font-weight: 500;
     }
 
+    .input-hora {
+        display: flex;
+        width: 380px;
+        gap: 20px;
+    }
+
+    .input-hora input {
+        width: 100% !important;
+        gap: 20px;
+    }
+
     @media (max-width: 1240px) {
         .main-content {
             flex-direction: column-reverse;
@@ -191,8 +202,13 @@
         }
 
         .div-texts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
+
 
         .div-inputs input {
             font-size: 1rem;
@@ -252,10 +268,15 @@
 
         <div class="main-content">
             <div class="div-inputs">
-                <input type="text" placeholder="Nome" required>
-                <input type="number" placeholder="Celular" required>
-                <input type="text" placeholder="Hora disponível" required>
-                <button>Enviar</button>
+                <input type="text" placeholder="Nome" required id="nome">
+                <input type="number" placeholder="Celular" required id="celular">
+
+                <div class="input-hora">
+                    <input type="text" placeholder="Hora Inicial" required id="horaInicial">
+                    <input type="text" placeholder="Hora Final" required id="horaFinal">
+                </div>
+                <button onclick="fetchDados()">Enviar</button>
+
                 <div class="zap">
                     <a href=""><img src="whatsapp 1.png" alt="">Clique Aqui</a>
                 </div>
@@ -285,6 +306,34 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+
+        async function fetchDados() {
+            let nome = document.getElementById('nome').value
+            let celular = document.getElementById('celular').value
+            let hrInicial = document.getElementById('horaInicial').value
+            let hrFinal = document.getElementById('horaFinal').value
+
+
+            let res = await fetch('')
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
 </body>
 
 </html>
