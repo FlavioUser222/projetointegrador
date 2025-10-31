@@ -278,7 +278,7 @@
                 <button onclick="fetchDados()">Enviar</button>
 
                 <div class="zap">
-                    <a href="" id="proximo"><img src="whatsapp 1.png" alt="">Clique Aqui</a>
+                    <a href="#" id="proximo"><img src="whatsapp 1.png" alt="">Clique Aqui</a>
 
                 </div>
             </div>
@@ -332,9 +332,6 @@
             }
         }
 
-
-
-
         let doadores = [];
         let indiceAtual = 0;
         console.log(doadores)
@@ -344,6 +341,7 @@
             try {
                 const res = await fetch('https://projeto-pi-onrender.onrender.com/doadores/disponiveis');
                 doadores = await res.json();
+                console.log(doadores)
                 indiceAtual = 0; // reinicia a fila
             } catch (err) {
                 console.error(err);
@@ -355,11 +353,12 @@
 
             const doador = doadores[indiceAtual];
 
-     
-            window.open(doador.linkWhatsApp, '_blank');
+            window.open(doador.linkWhatsApp, '_blank')
+            console.log(doador.linkWhatsApp)
 
-  
+            
             indiceAtual = (indiceAtual + 1) % doadores.length;
+            console.log(indiceAtual)
         });
 
  
