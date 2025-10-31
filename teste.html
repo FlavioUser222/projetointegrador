@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
 <style>
-    /* ======== RESET ======== */
     * {
         margin: 0;
         padding: 0;
@@ -25,7 +24,6 @@
         min-height: 100vh;
     }
 
-    /* ======== CABEÇALHO ======== */
     header {
         background-color: #003b73;
         color: white;
@@ -35,10 +33,10 @@
         justify-content: space-between;
     }
 
-    input{
+    input {
         width: 100%;
         max-width: 300px;
-        
+
     }
 
     .header-content {
@@ -63,13 +61,12 @@
         font-size: 1rem;
     }
 
-    /* ======== CONTEÚDO PRINCIPAL ======== */
     .container {
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width:1300px !important;
+        max-width: 1300px !important;
     }
 
     h1 {
@@ -86,14 +83,16 @@
 
     }
 
-    /* ======== FORMULÁRIO ======== */
+
     .div-inputs {
         display: flex;
         flex-direction: column;
         gap: 30px;
         width: 100%;
 
-
+    }
+    .zap{
+        margin-top: 80px;
     }
 
     .div-inputs label {
@@ -103,7 +102,6 @@
     .div-inputs input {
         width: 300px;
         padding: 6px 12px;
-
         font-size: 1rem;
         border: 2px solid #000a35;
     }
@@ -115,11 +113,11 @@
         padding: 10px 12px;
         font-size: 0.9rem;
         cursor: pointer;
-
     }
 
     .div-inputs a {
         display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 6px;
         text-decoration: none;
@@ -128,11 +126,13 @@
     }
 
     .div-inputs a img {
-        position: relative;
+        display: flex;
+        flex-direction: column;
         top: 150px;
         width: 70px;
         height: 70px;
     }
+
 
     .div-inputs a span {
         font-size: 0.9rem;
@@ -148,24 +148,31 @@
     .div-texts img {
         width: 100%;
         border: 1px solid #ccc;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
+
     .div-inputs a {
         width: 150px;
-        height: 100px;        
-  
+        height: 100px;
+
     }
+
     .div-inputs img {
         width: 150px;
-        height: 100px;        
-  
+        height: 100px;
+
     }
 
     .div-texts p {
         font-family: "Times New Roman", serif;
         font-size: 0.95rem;
         line-height: 1.5;
+        border: 2px solid black;
+        padding: 10px 20px;
+        width: 560px;
+        min-height: 161px;
     }
+
 
     /* ======== RODAPÉ ======== */
     footer {
@@ -257,23 +264,25 @@
                 <input type="number" placeholder="Celular" required>
                 <input type="text" placeholder="Hora disponível" required>
                 <button>Enviar</button>
-                <a href=""><img src="whatsapp 1.png" alt=""></a>
+                <div class="zap">
+                    <a href=""><img src="whatsapp 1.png" alt="">Clique Aqui</a>
+                </div>
             </div>
 
             <div class="div-texts">
                 <img src="Chamada de Vídeo com Sorrisos Amigáveis 1.png" alt="">
-                <p>Como Funciona o Posso Ajudar
+                <p>Como Funciona o Posso Ajudar</br>
                     O Posso Ajudar é uma plataforma solidária que conecta pessoas dispostas a doar um pouco do
-                    seu tempo com quem precisa de ajuda em situações simples do dia a dia.
+                    seu tempo com quem precisa de ajuda em situações simples do dia a dia.</br>
                     Os doadores se cadastram informando seus nomes, telefones e horários disponíveis para
                     oferecer ajuda por videochamada.
                     Assim, quem tem dificuldade de leitura — seja por problemas de visão, dificuldade de
                     interpretação ou qualquer outro motivo — pode contar com alguém que o ajude a entender uma
-                    receita médica, uma conta de luz ou outros documentos importantes.
-                    O doador será, simbolicamente, os olhos de quem precisa.
-                    Por que chamamos de “doador”?
+                    receita médica, uma conta de luz ou outros documentos importantes.</br>
+                    O doador será, simbolicamente, os olhos de quem precisa.</br>
+                    Por que chamamos de “doador”?</br>
                     Porque essa pessoa está doando seu tempo e sua atenção para ajudar o próximo — sem receber
-                    nada em troca, apenas pela vontade de fazer o bem.</p>
+                    nada em troca, apenas pela vontade de fazer o bem.</br></p>
             </div>
         </div>
     </div>
