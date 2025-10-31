@@ -279,7 +279,7 @@
 
                 <div class="zap">
                     <a href="" id="proximo"><img src="whatsapp 1.png" alt="">Clique Aqui</a>
-                    
+
                 </div>
             </div>
 
@@ -337,11 +337,12 @@
 
         let doadores = [];
         let indiceAtual = 0;
+        console.log(doadores)
 
         // Busca doadores disponíveis
         async function carregarDoadores() {
             try {
-                const res = await fetch('/doadores/disponiveis');
+                const res = await fetch('https://projeto-pi-onrender.onrender.com/doadores/disponiveis');
                 doadores = await res.json();
                 indiceAtual = 0; // reinicia a fila
             } catch (err) {
