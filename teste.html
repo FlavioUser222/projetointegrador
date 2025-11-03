@@ -140,7 +140,9 @@
         margin-top: 30px;
         font-family: "Jacques Francois", serif;
         font-weight: 500;
+        align-items: center;
     }
+
 
     .input-hora {
         display: flex;
@@ -154,9 +156,32 @@
     }
 
     label {
-        font-weight: 500;
-        font-size: 1rem;
         font-family: "Jacques Francois", serif;
+        font-size: 25px;
+        font-weight: 400;
+        color: black;
+    }
+
+    .dark-mode input {
+        background-color: #2b2b2b;
+        border: none;
+    }
+
+    .dark-mode label {
+        color: white;
+        border: none;
+    }
+
+    .dark-mode a {
+        color: white;
+    }
+
+    .dark-mode .div-texts>p {
+        border: 2px solid white;
+    }
+
+    .dark-mode input::placeholder {
+        color: white;
     }
 
 
@@ -170,6 +195,10 @@
     @media (max-width: 1240px) {
         .div-texts p {
             width: 100%;
+        }
+
+        button {
+            width: 30%;
         }
 
         .main-content {
@@ -277,18 +306,19 @@
 
             <div class="div-texts">
                 <img src="Chamada de Vídeo com Sorrisos Amigáveis 1.png" alt="">
-                <p>Como Funciona o Posso Ajudar</br>
-                    O Posso Ajudar é uma plataforma solidária que conecta pessoas dispostas a doar um pouco do
+                <p><b>Como Funciona o Posso Ajudar</b></br>
+                    É uma plataforma solidária que conecta pessoas dispostas a doar um pouco do
                     seu tempo com quem precisa de ajuda em situações simples do dia a dia.</br>
                     Os doadores se cadastram informando seus nomes, telefones e horários disponíveis para
                     oferecer ajuda por videochamada.
                     Assim, quem tem dificuldade de leitura — seja por problemas de visão, dificuldade de
-                    interpretação ou qualquer outro motivo — pode contar com alguém que o ajude a entender uma
+                    interpretação — pode contar com alguém que o ajude a entender uma
                     receita médica, uma conta de luz ou outros documentos importantes.</br>
                     O doador será, simbolicamente, os olhos de quem precisa.</br>
-                    Por que chamamos de “doador”?</br>
+                    <b>Por que chamamos de “doador”?</b></br>
                     Porque essa pessoa está doando seu tempo e sua atenção para ajudar o próximo — sem receber
-                    nada em troca, apenas pela vontade de fazer o bem.</br></p>
+                    nada em troca, apenas a vontade de fazer o bem.</br>
+                </p>
             </div>
         </div>
     </div>
