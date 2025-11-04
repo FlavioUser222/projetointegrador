@@ -475,7 +475,7 @@ body.tritanopia .hero {
     border-radius: 4px;
     transition: background 0.2s;
     display: flex;
-    align-items: start;
+    align-items: center;
     width: 110px;
 }
 
