@@ -379,7 +379,7 @@
                 let hrFinal = document.getElementById('horaFinal').value
 
                 if (!nome || !celular || !hrInicial || !hrFinal) {
-                    alert("Erro ao enviar dados")
+                    alert("Preencha todos os dados!")
                     return
                 }
 
@@ -398,6 +398,7 @@
                 }
             } catch (error) {
                 console.error(error)
+                alert("Erro ao enviar os dados!")
             }
         }
 
