@@ -542,6 +542,7 @@ body.tritanopia .hero {
         align-items: center;
         justify-content: center;
         gap: 10px;
+        width: 90%;
     }
 
     .footer a {
@@ -559,6 +560,7 @@ body.tritanopia .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .star-rating {
