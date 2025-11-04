@@ -29,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     position: relative;
     border-radius: 20px;
     padding: 10px;
