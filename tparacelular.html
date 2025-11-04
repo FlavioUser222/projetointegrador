@@ -73,6 +73,7 @@
     <footer class="footer">
         <p class="footer-mensagem">Feito com 💙 para facilitar o aprendizado digital</p>
         <p class="footer-credito">© 2025 Inclusive.com</p>
+        <a href="teste.html"><img src="configuracoes.png" alt="Ir para tela doadores de tempo"></a>
     </footer>
 
     <script src="script.js"></script>
@@ -161,7 +162,7 @@
                     return id;
                 })();
 
-  
+
                 ratingDiv.querySelectorAll('input').forEach(star => {
                     star.addEventListener('change', async (e) => {
                         const rating = e.target.value;
@@ -206,7 +207,7 @@
                 });
 
                 const avaliacoesSalvas = JSON.parse(localStorage.getItem("avaliacoes")) || {};
-                
+
                 if (avaliacoesSalvas[video.id]) {
                     const nota = avaliacoesSalvas[video.id];
                     const input = ratingDiv.querySelector(`input[value="${nota}"]`);
