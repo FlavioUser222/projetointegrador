@@ -272,6 +272,34 @@
         }
 
     }
+
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .conteudo-modal {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .fechar {
+        float: right;
+        font-size: 28px;
+        cursor: pointer;
+    }
 </style>
 
 
@@ -335,7 +363,7 @@
                         <input type="time" placeholder="Hora Final" required id="horaFinal">
                     </div>
                 </div>
-                <button onclick="fetchDados()">Enviar</button>
+                <button onclick="fetchDados()" id="btnTermos">Enviar</button>
 
                 <div class="zap">
                     <a href="#" id="proximo"><img src="whatsapp 1.png" alt="">Clique Aqui!</a>
@@ -360,6 +388,26 @@
                 </p>
             </div>
         </div>
+
+
+
+        <div id="modalTermos" class="modal">
+            <div class="conteudo-modal">
+                <span class="fechar">&times;</span>
+                <h2>Termos de Uso</h2>
+                <p>
+                    Ao utilizar este site, você concorda com os seguintes termos...
+                    (coloque aqui o conteúdo completo dos seus termos de uso)
+                </p>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button id="aceitarTermos"
+                        style="background-color: #0b1549; color: white; padding: 10px 16px; border: none; cursor: pointer;">Aceitar</button>
+                    <button id="cancelarTermos"
+                        style="background-color: #ccc; padding: 10px 16px; border: none; cursor: pointer;">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <footer class="footer">
@@ -370,6 +418,38 @@
 
     <script src="script.js"></script>
     <script>
+
+        const modal = document.getElementById("modalTermos");
+        const btnTermos = document.getElementById("btnTermos");
+        const fechar = document.querySelector(".fechar");
+        const aceitar = document.getElementById("aceitarTermos");
+        const cancelar = document.getElementById("cancelarTermos");
+
+        btnTermos.onclick = function () {
+            modal.style.display = "block";
+        };
+
+        fechar.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        cancelar.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        aceitar.onclick = function () {
+            modal.style.display = "none";
+            fetchDados()
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+
+
         async function fetchDados() {
 
             try {
