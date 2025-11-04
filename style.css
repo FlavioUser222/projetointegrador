@@ -32,6 +32,8 @@ body {
     align-items: center;
     position: relative;
     border-radius: 20px;
+    max-width: 350px;
+    width: 100%;
     padding: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -476,6 +478,7 @@ body.tritanopia .hero {
     transition: background 0.2s;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 110px;
 }
 
