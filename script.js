@@ -20,7 +20,7 @@ let botaoVideos = document.getElementById("botaoVideos");
 
 
 botaoMais.onclick = function () {
-    if (tamanhoDaLetra < 140) {
+    if (tamanhoDaLetra < 130) {
         tamanhoDaLetra += 10;
         document.body.style.fontSize = tamanhoDaLetra + "%";
 
