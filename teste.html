@@ -491,8 +491,8 @@
                 let hrInicial = document.getElementById('horaInicial').value
                 let hrFinal = document.getElementById('horaFinal').value
 
-                if (!nome || !celular || !hrInicial || !hrFinal) {
-                    alert("Preencha todos os dados!")
+                if (!nome || !celular || !hrInicial || !hrFinal || isNaN(celular)) {
+                    alert("Preencha todos os dados corretamente!")
                     return
                 }
 
