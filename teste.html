@@ -363,7 +363,7 @@
         <div class="main-content">
             <div class="div-inputs">
                 <input type="text" placeholder="Nome" required id="nome">
-                <input type="text" placeholder="Celular" required id="celular">
+                <input type="number" placeholder="Celular" required id="celular">
 
                 <div class="input-hora">
                     <div class="label1">
@@ -491,7 +491,7 @@
                 let hrInicial = document.getElementById('horaInicial').value
                 let hrFinal = document.getElementById('horaFinal').value
 
-                if (!nome || !celular || !hrInicial || !hrFinal || isNaN(celular)) {
+                if (!nome || !celular || !hrInicial || !hrFinal) {
                     alert("Preencha todos os dados corretamente!")
                     return
                 }
