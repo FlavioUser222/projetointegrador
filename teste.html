@@ -508,6 +508,7 @@
                 if (response.ok) {
                     console.log("Enviado com sucesso")
                     alert("Enviado com sucesso")
+                    limparInputs()
                 }
             } catch (error) {
                 console.error(error)
@@ -545,7 +546,20 @@
         });
 
 
+        function limparInputs() {
+            const inputs = document.querySelectorAll('input:not([type="button"]):not([type="submit"])');
+            inputs.forEach(input => input.value = '');
+        }
+
+
+
+
+
+
+
+
         carregarDoadores();
+
 
         setInterval(carregarDoadores, 30000);
 
